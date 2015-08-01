@@ -1,0 +1,20 @@
+default: &default
+  adapter: postgresql
+  encoding: unicode
+  pool: 5
+  username: postgres
+  password: qwerty
+
+development:
+  <<: *default
+  database: roka_development
+
+test:
+  <<: *default
+  database: roka_test
+
+production:
+  <<: *default
+  database: roka_production
+  username: roka
+  password: <%= ENV['ROKA_DATABASE_PASSWORD'] %>
