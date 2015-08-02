@@ -1,0 +1,9 @@
+.navbar.navbar-default
+  .container
+    .collapse.navbar-collapse
+      ul.nav.navbar-nav
+        li class=active_class(:users) =link_to t('users'), admin_users_path
+        li class=active_class(:colors)  =link_to t('colors'), admin_users_path
+        li class=active_class(:materials)  =link_to t('materials'), admin_users_path
+        li class=active_class(:sizes)  =link_to t('sizes'), admin_users_path
+        li class=active_class(:products)  =link_to t('products'), admin_users_path

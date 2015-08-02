@@ -1,1 +1,22 @@
+= link_to t('create'), new_admin_user_path, class: 'btn btn-success'
+
+- unless @users.empty?
+  h1 =t('users')
+  table class='table table-striped'
+    thead
+      tr
+        th #{t('user.first_name') + ' ' + t('user.last_name')}
+        th =t('user.email')
+        th
+    tbody
+      - @users.each do |user|
+        tr id="user_#{user.id}"
+          td #{user.first_name + ' ' + user.last_name}
+          td= user.email
+          td
+            => link_to t('form.edit'), edit_admin_user_path(user), class: 'btn btn-default', remote: true
+            => link_to t('form.destroy'), admin_user_path(user), data: {:confirm => t('form.confirm') }, :method => :delete, class: 'btn btn-danger'
+- else
+  h2 =t('user.empty')
+
 
