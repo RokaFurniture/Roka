@@ -14,6 +14,7 @@ gem 'carrierwave'
 gem 'slim-rails'
 gem 'lazybox'
 gem 'bootstrap-sass'
+gem 'autoprefixer-rails'
 gem 'rails-i18n'
 gem 'simple_form'
 
