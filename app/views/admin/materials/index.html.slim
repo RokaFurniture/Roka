@@ -1,0 +1,15 @@
+h1 =t('materials')
+
+.panel.panel-success
+  .panel-heading
+    h3 class='panel-title'
+      = t('material.new')
+  .panel-body
+    = render 'form'
+p
+  .panel.panel-primary
+    .panel-heading
+      h3 class='panel-title' =t('material.list')
+    .panel-body.materials
+      - unless @materials.empty?
+        = render @materials

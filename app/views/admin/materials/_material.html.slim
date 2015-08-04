@@ -1,0 +1,8 @@
+.row.line id="material_#{material.id}"
+  .col-md-5
+    span.name-middle= material.name
+  .col-md-4
+    span.name-middle= material.option
+  .col-md-3.buttons
+    => link_to t('form.edit'), edit_admin_material_path(material), class: 'btn btn-default', remote: true
+    => link_to t('form.destroy'), admin_material_path(material), data: {:confirm => t('form.confirm') }, :method => :delete, remote: true, class: 'btn btn-danger'
