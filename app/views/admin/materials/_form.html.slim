@@ -1,0 +1,4 @@
+= simple_form_for [:admin, @material], html: { class: 'form-inline' }, remote: true do |f|
+  => f.input :name, label: false, placeholder: t('material.name')
+  => f.input :option, label: false, placeholder: t('material.parameter')
+  => f.submit t('form.save'), class: 'btn btn-success'
