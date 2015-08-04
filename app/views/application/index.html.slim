@@ -1,0 +1,9 @@
+= image_tag ('logo.png')
+
+.row
+  .btn-big
+    = link_to t('admin'), admin_users_path, class: 'btn btn-info my'
+  .btn-big
+    = link_to "#{t('manager') + ' (' + t('soon') + ')'}", '#', class: 'btn btn-warning my'
+  .btn-big
+    = link_to "#{t('operator') + ' (' + t('soon') + ')'}", '#', class: 'btn btn-warning my'

@@ -17,12 +17,12 @@ gem 'bootstrap-sass'
 gem 'autoprefixer-rails'
 gem 'rails-i18n'
 gem 'simple_form'
+gem 'jquery-minicolors-rails'
 
 group :development, :test do
   gem 'pry'
   gem 'capybara'
   gem 'rspec-rails'
-  gem 'byebug'
   gem 'web-console', '~> 2.0'
   gem 'spring'
 end

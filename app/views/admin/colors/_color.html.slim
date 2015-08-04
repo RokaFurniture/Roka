@@ -1,0 +1,7 @@
+.row.colors id="color_#{color.id}"
+  .col-md-4.name
+    span #{color.name + ' (' + color.color.upcase + ')'}
+  .col-md-5.show-color style="background-color: #{color.color}"
+  .col-md-3.buttons
+    => link_to t('form.edit'), edit_admin_color_path(color), class: 'btn btn-default', remote: true
+    => link_to t('form.destroy'), admin_color_path(color), data: {:confirm => t('form.confirm') }, :method => :delete, class: 'btn btn-danger'
