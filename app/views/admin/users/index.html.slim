@@ -1,7 +1,7 @@
+h1 =t('users')
 = link_to t('create'), new_admin_user_path, class: 'btn btn-success'
 
 - unless @users.empty?
-  h1 =t('users')
   table class='table table-striped'
     thead
       tr

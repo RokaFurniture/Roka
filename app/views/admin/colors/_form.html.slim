@@ -1,0 +1,8 @@
+.row.flex
+  .col-md-4
+    = simple_form_for [:admin, @color] do |f|
+      => f.input :name, label: t('color.name')
+      => f.input :color, as: :minicolors, input_html: { data: { minicolors: {theme: :bootstrap}}}, label: t('color.color')
+      => f.submit t('form.save'), class: 'btn btn-success'
+      => link_to t('form.back'), admin_colors_path, class: 'btn btn-default'
+  .col-md-8.show-color
