@@ -1,0 +1,15 @@
+h1 =t('sizes')
+
+.panel.panel-success
+  .panel-heading
+    h3 class='panel-title'
+      = t('size.new')
+  .panel-body
+    = render 'form'
+
+.panel.panel-primary
+  .panel-heading
+    h3 class='panel-title' = "#{ t('size.list') + ' (' + t('size.width') + ' x ' + t('size.length') + ' x ' + t('size.height') + ', ' + t('size.unit') + ')'}"
+  .panel-body.sizes
+    - unless @sizes.empty?
+      = render @sizes
