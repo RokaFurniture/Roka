@@ -1,0 +1,6 @@
+.row.line id="product_group_#{product_group.id}"
+  .col-md-9
+    span.name-middle= product_group.name
+  .col-md-3.buttons
+    => link_to t('form.edit'), edit_admin_product_group_path(product_group), class: 'btn btn-default', remote: true
+    => link_to t('form.destroy'), admin_product_group_path(product_group), data: {:confirm => t('form.confirm') }, :method => :delete, remote: true, class: 'btn btn-danger'

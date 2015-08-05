@@ -4,7 +4,7 @@ class Admin::MaterialsController < ApplicationController
   layout 'admin'
 
   def index
-    @materials = Material.all
+    @materials = Material.all.order(:name)
     @material = Material.new
   end
 

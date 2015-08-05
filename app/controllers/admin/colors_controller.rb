@@ -1,17 +1,10 @@
 class Admin::ColorsController < ApplicationController
-  before_action :set_color, only: [:show, :edit, :update, :destroy]
+  before_action :set_color, only: [:edit, :update, :destroy]
 
   layout 'admin'
 
   def index
-    @colors = Color.all
-    @color = Color.new
-  end
-
-  def show
-  end
-
-  def new
+    @colors = Color.all.order(:name)
     @color = Color.new
   end
 
@@ -20,24 +13,29 @@ class Admin::ColorsController < ApplicationController
 
   def create
     @color = Color.new(color_params)
-    if @color.save
-      redirect_to admin_colors_path
-    else
-      render :new
+    respond_to do |format|
+      if @color.save
+        format.html { redirect_to admin_colors_path }
+        format.js {}
+      end
     end
   end
 
   def update
-    if @color.update(color_params)
-      redirect_to admin_colors_path
-    else
-      render :edit
+    respond_to do |format|
+      if @color.update(color_params)
+        format.html { redirect_to admin_colors_path }
+        format.js {}
+      end
     end
   end
 
   def destroy
+    respond_to do |format|
+      format.html { redirect_to admin_colors_path }
+      format.js {}
+    end
     @color.destroy
-    redirect_to admin_colors_path
   end
 
   private

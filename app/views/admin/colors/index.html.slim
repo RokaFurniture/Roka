@@ -1,6 +1,15 @@
 h1 =t('colors')
-= link_to t('create'), new_admin_color_path, class: 'btn btn-success'
-- unless @colors.empty?
-  = render @colors
-- else
-  h2 =t('color.empty')
+
+.panel.panel-success
+  .panel-heading
+    h3 class='panel-title'
+      = t('color.new')
+  .panel-body
+    = render 'form'
+
+.panel.panel-primary
+  .panel-heading
+    h3 class='panel-title' =t('color.list')
+  .panel-body.colors
+    - unless @colors.empty?
+      = render @colors

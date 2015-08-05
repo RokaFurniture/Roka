@@ -18,6 +18,23 @@ en:
     parameter: 'Параметри'
     unit: 'Одиниця виміру'
     empty: 'Матеріалів немає'
+  product:
+    new: 'Додати новий товар'
+    list: 'Список товарів'
+    name: 'Назва'
+    description: 'Описання'
+    empty: 'Товарів немає'
+  size:
+    new: 'Додати новий розмір'
+    list: 'Список розмірів'
+    width: 'Ширина'
+    length: 'Довжина'
+    height: 'Висота'
+    unit: 'мм'
+  product_group:
+    new: 'Додати нову групу товарів'
+    name: 'Назва'
+    list: 'Список груп товарів'
   form:
     back: 'Назад'
     save: 'Зберегти'
@@ -38,5 +55,6 @@ en:
   materials: 'Матеріали'
   sizes: 'Розміри'
   products: 'Товари'
+  product_groups: 'Групи товарів'
   menu: 'Меню'
 

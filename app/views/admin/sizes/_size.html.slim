@@ -1,0 +1,10 @@
+.row.line id="size_#{size.id}"
+  .col-md-5
+    span.name-middle= size.product_group.name
+  .col-md-4
+    span.name-middle= size.width
+    span.name-middle= "#{ ' x ' + size.length.to_s }"
+    span.name-middle= "#{ ' x ' + size.height.to_s }" unless size.height.nil?
+  .col-md-3.buttons
+    => link_to t('form.edit'), edit_admin_size_path(size), class: 'btn btn-default', remote: true
+    => link_to t('form.destroy'), admin_size_path(size), data: {:confirm => t('form.confirm') }, :method => :delete, remote: true, class: 'btn btn-danger'

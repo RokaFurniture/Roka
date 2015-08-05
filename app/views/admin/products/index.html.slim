@@ -1,0 +1,15 @@
+h1 =t('products')
+
+.panel.panel-success
+  .panel-heading
+    h3 class='panel-title'
+      = t('product.new')
+  .panel-body
+    = render 'form'
+
+.panel.panel-primary
+  .panel-heading
+    h3 class='panel-title' =t('product.list')
+  .panel-body.products
+    - unless @products.empty?
+      = render @products
