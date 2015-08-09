@@ -1,6 +1,6 @@
 .row.line id="size_#{size.id}"
   .col-md-5
-    span.name-middle= size.product_group.name
+    span.name-middle= size.product_group.name || 'no group'
   .col-md-4
     span.name-middle= size.width
     span.name-middle= "#{ ' x ' + size.length.to_s }"
