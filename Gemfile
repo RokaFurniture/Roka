@@ -19,6 +19,7 @@ gem 'autoprefixer-rails'
 gem 'rails-i18n'
 gem 'simple_form'
 gem 'jquery-minicolors-rails'
+gem "airbrake"
 
 group :development, :test do
   gem 'pry'
