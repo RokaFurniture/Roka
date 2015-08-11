@@ -1,0 +1,11 @@
+h1= t('product.cart')
+
+.row
+  .col-md-5
+    h3= @product.product_group.name
+    h2= @product.name
+    h3= @product.description
+  .col-md-7
+    = image_tag @product.image_url(:big)
+
+
