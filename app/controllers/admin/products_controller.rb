@@ -1,11 +1,14 @@
 class Admin::ProductsController < ApplicationController
-  before_action :set_product, only: [:edit, :update, :destroy]
+  before_action :set_product, only: [:show, :edit, :update, :destroy]
 
   layout 'admin'
 
   def index
     @product = Product.new
     @products = Product.all.order(:product_group_id)
+  end
+
+  def show
   end
 
   def edit
