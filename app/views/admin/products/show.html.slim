@@ -1,11 +1,50 @@
-h1= t('product.cart')
-
-.row
-  .col-md-5
+.row.pd
+  .col-md-6
+    h2= t('product.cart')
     h3= @product.product_group.name
     h2= @product.name
+    h3= @product.size.name
     h3= @product.description
-  .col-md-7
+  .col-md-6.text-right
     = image_tag @product.image_url(:big)
 
+.row.panel.panel-success#new
+  .panel-heading
+    h3 class='panel-title'
+      = t('product.material.new')
+  .panel-body
+    = render 'admin/product_materials/form_materials'
 
+.row
+  .panel.panel-primary
+    .panel-heading
+      h3 class='panel-title'
+        = t('product.material.title')
+    .panel-body
+      .panel.panel-info#joinery
+        .panel-heading
+          h3 class='panel-title'
+            = t('product.joinery')
+        .panel-body
+          = render partial: 'admin/product_materials/product_material', collection: @materials.joinery
+
+      .panel.panel-info#grinding
+        .panel-heading
+          h3 class='panel-title'
+            = t('product.grinding')
+        .panel-body
+          = render partial: 'admin/product_materials/product_material', collection: @materials.grinding
+
+      .panel.panel-info#painting
+        .panel-heading
+          h3 class='panel-title'
+            = t('product.painting')
+        .panel-body
+          = render partial: 'admin/product_materials/product_material', collection: @materials.painting
+
+      .panel.panel-info#assembly
+        .panel-heading
+          h3 class='panel-title'
+            = t('product.assembly')
+        .panel-body
+          = render partial: 'admin/product_materials/product_material', collection: @materials.assembly

@@ -1,1 +1,0 @@
-$("#edit_product_<%= @product.id %>").replaceWith("<%= j(render @product) %>")

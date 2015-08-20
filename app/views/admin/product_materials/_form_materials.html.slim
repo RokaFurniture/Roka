@@ -1,0 +1,6 @@
+= simple_form_for [:admin, @product_material], html: { class: 'form-inline' }, remote: true do |f|
+  => f.hidden_field :product_id, value: @product.id || @product_material.product_id
+  => f.input :level, collection: ProductMaterial.levels.keys.map{ |x| t("product.#{x}") }.zip(ProductMaterial.levels.keys), label: false, selected: '0'
+  => f.association :material, collection: Material.all, label_method: lambda { |x| "#{x.name << ' (' << x.option << ') (' << x.unit << ')'}".to_s }, label: false
+  => f.input :value, label: false, placeholder: t('value')
+  => f.submit t('form.save'), class: 'btn btn-success'
