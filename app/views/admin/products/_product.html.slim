@@ -6,7 +6,7 @@
   .col-md-2
     span.name-middle= product.name
   .col-md-4
-    span.name-middle= product.description
+    span.name-middle= product.size.name
   .col-md-3.buttons
     => link_to t('product.cart'), admin_product_path(product), class: 'btn btn-default'
     => link_to t('form.destroy'), admin_product_path(product), data: {:confirm => t('form.confirm') }, :method => :delete, remote: true, class: 'btn btn-danger'

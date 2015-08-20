@@ -17,6 +17,14 @@ body {
   border-bottom: 1px solid #D3D3D3;
 }
 
+.text-right {
+  text-align: right;
+}
+
+.text-left {
+  text-align: left;
+}
+
 .minicolors {
   display: inline-block;
 }
@@ -26,6 +34,10 @@ body {
   height: 50px;
   margin: 10px;
   padding: auto 0;
+}
+
+.pd {
+  margin-bottom: 10px;
 }
 
 .my {

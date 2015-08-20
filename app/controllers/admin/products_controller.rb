@@ -9,6 +9,8 @@ class Admin::ProductsController < ApplicationController
   end
 
   def show
+    @product_material = ProductMaterial.new
+    @materials = ProductMaterial.materials(@product.id)
   end
 
   def edit

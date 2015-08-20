@@ -1,2 +1,4 @@
 $("<%= j(render @product) %>").appendTo(".products").effect('highlight', {}, 1000)
-$("#new_product .form-control").val('')
+$("#product_name").val('')
+$("#product_description").val('')
+$("#product_image").val('')
