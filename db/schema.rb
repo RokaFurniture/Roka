@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150820192541) do
+ActiveRecord::Schema.define(version: 20150821054750) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,9 +39,9 @@ ActiveRecord::Schema.define(version: 20150820192541) do
     t.integer  "product_id"
     t.integer  "material_id"
     t.integer  "level",       default: 0
-    t.integer  "value",       default: 0
-    t.datetime "created_at",              null: false
-    t.datetime "updated_at",              null: false
+    t.decimal  "value",       default: 0.0
+    t.datetime "created_at",                null: false
+    t.datetime "updated_at",                null: false
   end
 
   add_index "product_materials", ["material_id"], name: "index_product_materials_on_material_id", using: :btree
