@@ -48,3 +48,5 @@
             = t('product.assembly')
         .panel-body
           = render partial: 'admin/product_materials/product_material', collection: @materials.assembly
+
+= link_to t('clone'), clone_admin_product_path(params[:id]), class: 'btn btn-success'
