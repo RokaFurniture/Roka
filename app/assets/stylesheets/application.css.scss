@@ -1,8 +1,5 @@
-/*
- *= require jquery.minicolors
- *= require jquery-ui
- */
-
+@import "jquery.minicolors";
+@import "jquery-ui";
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "lazybox";

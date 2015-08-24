@@ -1,12 +1,4 @@
-.row.pd
-  .col-md-6
-    h2= t('product.cart')
-    h3= @product.product_group.name
-    h2= @product.name
-    h3= @product.size.name
-    h3= @product.description
-  .col-md-6.text-right
-    = image_tag @product.image_url(:big)
+= render 'product_show'
 
 .row.panel.panel-success#new
   .panel-heading

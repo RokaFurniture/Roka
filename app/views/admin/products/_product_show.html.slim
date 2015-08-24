@@ -1,0 +1,11 @@
+.product
+  .row.pd
+    .col-md-6
+      h2= t('product.cart')
+      span =link_to t('form.edit'), edit_admin_product_path(@product.id), class: 'btn btn-info btn-xs', remote: true
+      h3= @product.product_group.name
+      h2= @product.name
+      h3= @product.size.name
+      h3= @product.description
+    .col-md-6.text-right
+      = image_tag @product.image_url(:big)
