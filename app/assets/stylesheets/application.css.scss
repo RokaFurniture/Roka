@@ -69,6 +69,12 @@ body {
   font-size: 1.4em;
 }
 
-.control-label {
-  margin: 0 5px 0 15px;
+.simple_form {
+  .control-label {
+    margin: 0 5px 0 15px;
+  }
+}
+
+.footer {
+  height: 50px;
 }

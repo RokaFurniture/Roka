@@ -43,6 +43,19 @@ class Admin::ProductsController < ApplicationController
     @product.destroy
   end
 
+  def clone
+    old = Product.find(params[:id])
+    product = Product.create(old.attributes.reject do |k, _v|
+      k == ('id' || 'image')
+    end)
+    ProductMaterial.where('product_id = ?', params[:id]).each do |material|
+      @product_material = material.dup
+      @product_material.product = product
+      @product_material.save
+    end
+    redirect_to admin_product_path(product.id)
+  end
+
   private
 
   def set_product
