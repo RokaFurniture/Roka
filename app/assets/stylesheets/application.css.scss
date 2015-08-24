@@ -1,8 +1,5 @@
-/*
- *= require jquery.minicolors
- *= require jquery-ui
- */
-
+@import "jquery.minicolors";
+@import "jquery-ui";
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "lazybox";
@@ -70,4 +67,8 @@ body {
 
 .name-middle {
   font-size: 1.4em;
+}
+
+.control-label {
+  margin: 0 5px 0 15px;
 }
