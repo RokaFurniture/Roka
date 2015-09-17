@@ -1,4 +1,5 @@
 = simple_form_for [:operator, @input], html: { class: 'form-inline' }, remote: true do |f|
-  => f.input :num, placeholder: t('inputs.number')
-  => f.input :date, label: false, placeholder: t('inputs.date')
-  => f.submit t('form.save'), class: 'btn btn-success'
+  => f.input :num, label: t('inputs.num')
+  => f.input :date, order: [:day, :month, :year], label: t('inputs.date')
+  => f.association :provider, include_blank: false, label: t('inputs.provider')
+  => f.submit t('form.create'), class: 'btn btn-success'

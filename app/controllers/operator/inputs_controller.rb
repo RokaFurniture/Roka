@@ -4,11 +4,12 @@ class Operator::InputsController < ApplicationController
   layout 'operator'
 
   def index
+    @input = Input.new
     @inputs = Input.all
   end
 
   def new
-    @input = Input.new
+    @providers = Provider.all
   end
 
   def show

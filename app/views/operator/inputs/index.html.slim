@@ -1,6 +1,7 @@
 h1 =t('inputs.title')
 
-/* = render 'form' */
+/* = link_to t('inputs.new'), new_operator_input_path, class: 'btn btn-success' */
+= render 'form'
 
 - unless @inputs.empty?
   table.table.inputs
