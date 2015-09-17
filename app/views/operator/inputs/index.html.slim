@@ -1,0 +1,19 @@
+h1 =t('inputs.title')
+
+/* = render 'form' */
+
+- unless @inputs.empty?
+  table.table.inputs
+    thead
+      tr
+        th.col-md-3
+          = t('inputs.num')
+        th.col-md-3
+          = t('inputs.date')
+        th.col-md-3
+          = t('inputs.provider')
+        th.col-md.3
+    tbody
+      = render @inputs
+- else
+  h2 =t('inputs.empty')

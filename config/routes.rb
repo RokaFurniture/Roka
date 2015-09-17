@@ -11,4 +11,10 @@ Rails.application.routes.draw do
       end
     end
   end
+
+  namespace :operator do
+    get 'storage', to: 'storage#index'
+    resources :inputs, :providers
+    resources :input_materials
+  end
 end

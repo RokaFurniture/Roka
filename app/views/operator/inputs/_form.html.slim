@@ -1,0 +1,4 @@
+= simple_form_for [:operator, @input], html: { class: 'form-inline' }, remote: true do |f|
+  => f.input :num, placeholder: t('inputs.number')
+  => f.input :date, label: false, placeholder: t('inputs.date')
+  => f.submit t('form.save'), class: 'btn btn-success'

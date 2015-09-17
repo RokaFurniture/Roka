@@ -1,0 +1,15 @@
+h1 =t('storage.name')
+table.table
+  thead
+    tr
+      th.col-md-6
+        = t('material.name')
+      th.col-md-2
+        = t('material.unit')
+      th.col-md-2
+        = t('material.price')
+      th.col-md-2
+        = t('storage.count')
+  tbody
+    - unless @materials.empty?
+      = render partial: 'material', collection: @materials

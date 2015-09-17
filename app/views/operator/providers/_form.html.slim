@@ -1,0 +1,5 @@
+= simple_form_for [:operator, @provider], html: { class: 'form-inline' }, remote: true do |f|
+  => f.input :name, label: false, placeholder: t('provider.name')
+  => f.input :phone, label: false, placeholder: t('provider.phone')
+  => f.input :adress, label: false, placeholder: t('provider.adress')
+  => f.submit t('form.save'), class: 'btn btn-success'
