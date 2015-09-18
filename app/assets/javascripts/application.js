@@ -2,6 +2,8 @@
 //= require jquery_ujs
 //= require turbolinks
 //= require jquery-ui/effect-highlight
+//= require jquery-ui/datepicker
+//= require jquery-ui/datepicker-uk
 //= require bootstrap-sprockets
 //= require lazybox
 //= require jquery.minicolors

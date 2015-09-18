@@ -13,6 +13,7 @@ class Operator::InputsController < ApplicationController
   end
 
   def show
+    @input_material = InputMaterial.new
   end
 
   def edit

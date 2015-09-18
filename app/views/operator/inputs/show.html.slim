@@ -1,15 +1,44 @@
-- unless @input.materials.empty?
-  table.table
-    thead
-      tr
-        th.col-md-3
-          = t('.num')
-        th.col-md-3
-          = t('inputs.date')
-        th.col-md-3
-          = t('inputs.provider')
-        th.col-md.3
-    tbody
-      = render @inputs
-- else
-  h2 =t('inputs.empty')
+= render 'input_show'
+
+.row.panel.panel-success#new
+  .panel-heading
+    h3 class='panel-title'
+      = t('product.material.new')
+  .panel-body
+    = render 'admin/product_materials/form_materials'
+
+.row
+  .panel.panel-primary
+    .panel-heading
+      h3 class='panel-title'
+        = t('product.material.title')
+    .panel-body
+      .panel.panel-info#joinery
+        .panel-heading
+          h3 class='panel-title'
+            = t('product.joinery')
+        .panel-body
+          = render partial: 'admin/product_materials/product_material', collection: @materials.joinery
+
+      .panel.panel-info#grinding
+        .panel-heading
+          h3 class='panel-title'
+            = t('product.grinding')
+        .panel-body
+          = render partial: 'admin/product_materials/product_material', collection: @materials.grinding
+
+      .panel.panel-info#painting
+        .panel-heading
+          h3 class='panel-title'
+            = t('product.painting')
+        .panel-body
+          = render partial: 'admin/product_materials/product_material', collection: @materials.painting
+
+      .panel.panel-info#assembly
+        .panel-heading
+          h3 class='panel-title'
+            = t('product.assembly')
+        .panel-body
+          = render partial: 'admin/product_materials/product_material', collection: @materials.assembly
+
+= link_to t('clone'), clone_admin_product_path(params[:id]), class: 'btn btn-success'

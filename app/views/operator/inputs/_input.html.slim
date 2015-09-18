@@ -3,5 +3,5 @@ tr id="input_#{input.id}"
   td= input.date
   td= input.provider.name
   td
-    /* => link_to t('form.edit'), edit_operator_provider_path(provider), class: 'btn btn-default', remote: true */
+    => link_to t('inputs.show'), operator_input_path(input), class: 'btn btn-default'
     /* => link_to t('form.destroy'), operator_provider_path(provider), data: {:confirm => t('form.confirm') }, :method => :delete, remote: true, class: 'btn btn-danger' */
