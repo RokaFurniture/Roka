@@ -1,0 +1,16 @@
+h1 =t('provider.title')
+
+= render 'form'
+
+table.table.providers
+  thead
+    tr
+      th.col-md-3
+        = t('provider.name')
+      th.col-md-3
+        = t('provider.phone')
+      th.col-md-3
+        = t('provider.adress')
+      th.col-md.3
+  tbody
+    = render @providers

@@ -1,11 +1,18 @@
+/*
+*= require jquery-ui
+*/
+
 @import "jquery.minicolors";
-@import "jquery-ui";
 @import "bootstrap-sprockets";
 @import "bootstrap";
 @import "lazybox";
 
 body {
   background: url('/bg.jpg');
+}
+
+td {
+  vertical-align: middle;
 }
 
 .line {
@@ -20,6 +27,10 @@ body {
 
 .text-left {
   text-align: left;
+}
+
+.bold {
+  font-weight: bold;
 }
 
 .minicolors {

@@ -1,0 +1,6 @@
+tr id="input_#{input.id}"
+  td= input.num
+  td= input.date
+  td= input.provider.name
+  td= link_to t('inputs.show'), operator_input_path(input), class: 'btn btn-default'
+  td= link_to image_tag('remove.png'), operator_input_path(input), title: t('form.destroy'), data: {:confirm => t('form.confirm') }, :method => :delete, remote: true

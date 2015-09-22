@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150821191703) do
+ActiveRecord::Schema.define(version: 20150922191738) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -23,12 +23,32 @@ ActiveRecord::Schema.define(version: 20150821191703) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "input_materials", force: :cascade do |t|
+    t.integer "input_id"
+    t.integer "material_id"
+    t.decimal "price"
+    t.decimal "count"
+  end
+
+  add_index "input_materials", ["input_id"], name: "index_input_materials_on_input_id", using: :btree
+  add_index "input_materials", ["material_id"], name: "index_input_materials_on_material_id", using: :btree
+
+  create_table "inputs", force: :cascade do |t|
+    t.string  "num"
+    t.date    "date"
+    t.integer "provider_id"
+  end
+
+  add_index "inputs", ["provider_id"], name: "index_inputs_on_provider_id", using: :btree
+
   create_table "materials", force: :cascade do |t|
     t.string   "name"
     t.string   "option"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
     t.string   "unit"
+    t.decimal  "price",      default: 0.0
+    t.decimal  "count",      default: 0.0
   end
 
   create_table "product_groups", force: :cascade do |t|
@@ -60,6 +80,12 @@ ActiveRecord::Schema.define(version: 20150821191703) do
   add_index "products", ["product_group_id"], name: "index_products_on_product_group_id", using: :btree
   add_index "products", ["size_id"], name: "index_products_on_size_id", using: :btree
 
+  create_table "providers", force: :cascade do |t|
+    t.string "name"
+    t.string "phone"
+    t.string "adress"
+  end
+
   create_table "sizes", force: :cascade do |t|
     t.integer  "height"
     t.integer  "length"
@@ -80,6 +106,9 @@ ActiveRecord::Schema.define(version: 20150821191703) do
     t.datetime "updated_at", null: false
   end
 
+  add_foreign_key "input_materials", "inputs"
+  add_foreign_key "input_materials", "materials"
+  add_foreign_key "inputs", "providers"
   add_foreign_key "product_materials", "materials"
   add_foreign_key "product_materials", "products"
   add_foreign_key "products", "colors"

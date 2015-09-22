@@ -1,0 +1,20 @@
+h1 =t('inputs.title')
+
+.col-md-10
+  = render 'form'
+.col-md-2
+  = link_to t('provider.new'), new_operator_provider_path, class: 'btn btn-warning', remote: true
+
+table.table.inputs
+  thead
+    tr
+      th.col-md-3
+        = t('inputs.num')
+      th.col-md-3
+        = t('inputs.date')
+      th.col-md-3
+        = t('inputs.provider')
+      th.col-md-2
+      th.col-md-1
+  tbody
+    = render @inputs

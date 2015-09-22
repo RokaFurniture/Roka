@@ -1,0 +1,11 @@
+# TODO: rename this to 'Purchase Invoice'
+# TODO: create 'Sales Invoice' in future
+
+class Input < ActiveRecord::Base
+  validates :num, :date, :provider, presence: true
+  validates :num, uniqueness: true
+
+  belongs_to :provider
+  has_many :materials, through: :input_materials
+  has_many :input_materials, dependent: :destroy
+end
