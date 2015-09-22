@@ -2,18 +2,15 @@ h1 =t('provider.title')
 
 = render 'form'
 
-- unless @providers.empty?
-  table.table.providers
-    thead
-      tr
-        th.col-md-3
-          = t('provider.name')
-        th.col-md-3
-          = t('provider.phone')
-        th.col-md-3
-          = t('provider.adress')
-        th.col-md.3
-    tbody
-      = render @providers
-- else
-  h2 =t('provider.empty')
+table.table.providers
+  thead
+    tr
+      th.col-md-3
+        = t('provider.name')
+      th.col-md-3
+        = t('provider.phone')
+      th.col-md-3
+        = t('provider.adress')
+      th.col-md.3
+  tbody
+    = render @providers

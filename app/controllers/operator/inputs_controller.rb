@@ -14,6 +14,7 @@ class Operator::InputsController < ApplicationController
 
   def show
     @input_material = InputMaterial.new
+    @materials = InputMaterial.materials(@input.id)
   end
 
   def edit

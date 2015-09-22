@@ -1,3 +1,6 @@
+# TODO: rename this to 'Purchase Invoice'
+# TODO: create 'Sales Invoice' in future
+
 class Input < ActiveRecord::Base
   validates :num, :date, :provider, presence: true
   validates :num, uniqueness: true

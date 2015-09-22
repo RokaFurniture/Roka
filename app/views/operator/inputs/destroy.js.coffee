@@ -1,1 +1,1 @@
-$("#provider_<%= @provider.id %>").fadeOut(500, -> $(@).remove())
+$("#input_<%= @input.id %>").fadeOut(500, -> $(@).remove())

@@ -1,20 +1,20 @@
 h1 =t('inputs.title')
 
-/* = link_to t('inputs.new'), new_operator_input_path, class: 'btn btn-success' */
-= render 'form'
+.col-md-10
+  = render 'form'
+.col-md-2
+  = link_to t('provider.new'), new_operator_provider_path, class: 'btn btn-warning', remote: true
 
-- unless @inputs.empty?
-  table.table.inputs
-    thead
-      tr
-        th.col-md-3
-          = t('inputs.num')
-        th.col-md-3
-          = t('inputs.date')
-        th.col-md-3
-          = t('inputs.provider')
-        th.col-md.3
-    tbody
-      = render @inputs
-- else
-  h2 =t('inputs.empty')
+table.table.inputs
+  thead
+    tr
+      th.col-md-3
+        = t('inputs.num')
+      th.col-md-3
+        = t('inputs.date')
+      th.col-md-3
+        = t('inputs.provider')
+      th.col-md-2
+      th.col-md-1
+  tbody
+    = render @inputs

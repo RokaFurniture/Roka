@@ -7,4 +7,4 @@ tr id="provider_#{provider.id}"
     = provider.adress
   td
     /* => link_to t('form.edit'), edit_operator_provider_path(provider), class: 'btn btn-default', remote: true */
-    => link_to t('form.destroy'), operator_provider_path(provider), data: {:confirm => t('form.confirm') }, :method => :delete, remote: true, class: 'btn btn-danger'
+    => link_to image_tag('remove.png'), operator_provider_path(provider), data: {:confirm => t('form.confirm') }, :method => :delete, remote: true

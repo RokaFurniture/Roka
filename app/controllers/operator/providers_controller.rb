@@ -8,6 +8,10 @@ class Operator::ProvidersController < ApplicationController
     @providers = Provider.all.order(:name)
   end
 
+  def new
+    @provider = Provider.new
+  end
+
   def edit
   end
 

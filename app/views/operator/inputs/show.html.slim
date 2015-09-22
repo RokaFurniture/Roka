@@ -1,44 +1,24 @@
-= render 'input_show'
+p
+  span.bold= "#{t('inputs.num')}: "
+  span= "#{@input.num}"
+p
+  span.bold= "#{t('inputs.date')}: "
+  span= "#{@input.date}"
+p
+  span.bold= "#{t('inputs.provider')}: "
+  span= "#{@input.provider.name}"
 
-.row.panel.panel-success#new
-  .panel-heading
-    h3 class='panel-title'
-      = t('product.material.new')
-  .panel-body
-    = render 'admin/product_materials/form_materials'
+table.table.input_materials
+  thead
+    tr
+      th.col-md-6
+        = t('material.title')
+      th.col-md-2
+        = t('count')
+      th.col-md-2
+        = t('price')
+      th.col-md.2
+  tbody#materials
+    = render partial: 'operator/input_materials/input_material', collection: @materials
 
-.row
-  .panel.panel-primary
-    .panel-heading
-      h3 class='panel-title'
-        = t('product.material.title')
-    .panel-body
-      .panel.panel-info#joinery
-        .panel-heading
-          h3 class='panel-title'
-            = t('product.joinery')
-        .panel-body
-          = render partial: 'admin/product_materials/product_material', collection: @materials.joinery
-
-      .panel.panel-info#grinding
-        .panel-heading
-          h3 class='panel-title'
-            = t('product.grinding')
-        .panel-body
-          = render partial: 'admin/product_materials/product_material', collection: @materials.grinding
-
-      .panel.panel-info#painting
-        .panel-heading
-          h3 class='panel-title'
-            = t('product.painting')
-        .panel-body
-          = render partial: 'admin/product_materials/product_material', collection: @materials.painting
-
-      .panel.panel-info#assembly
-        .panel-heading
-          h3 class='panel-title'
-            = t('product.assembly')
-        .panel-body
-          = render partial: 'admin/product_materials/product_material', collection: @materials.assembly
-
-= link_to t('clone'), clone_admin_product_path(params[:id]), class: 'btn btn-success'
+= render 'operator/input_materials/form'

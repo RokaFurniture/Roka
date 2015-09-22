@@ -11,6 +11,10 @@ body {
   background: url('/bg.jpg');
 }
 
+td {
+  vertical-align: middle;
+}
+
 .line {
   margin-bottom: 5px;
   padding-bottom: 5px;
@@ -23,6 +27,10 @@ body {
 
 .text-left {
   text-align: left;
+}
+
+.bold {
+  font-weight: bold;
 }
 
 .minicolors {

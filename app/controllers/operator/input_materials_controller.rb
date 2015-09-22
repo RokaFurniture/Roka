@@ -1,4 +1,4 @@
-class Admin::InputMaterialsController < ApplicationController
+class Operator::InputMaterialsController < ApplicationController
   before_action :set_material, only: [:edit, :update, :destroy]
 
   layout 'operator'
@@ -10,6 +10,7 @@ class Admin::InputMaterialsController < ApplicationController
   def create
     @input_material = InputMaterial.new(material_params)
     @input_material.save
+    @input_material.material.update(price: @input_material.price, count: @input_material.material.count + @input_material.count)
   end
 
   def update
@@ -17,6 +18,11 @@ class Admin::InputMaterialsController < ApplicationController
   end
 
   def destroy
+    respond_to do |format|
+      format.html { redirect_to operator_inputs_path }
+      format.js {}
+    end
+    @input_material.material.update(count: @input_material.material.count - @input_material.count)
     @input_material.destroy
   end
 
