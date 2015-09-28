@@ -1,0 +1,6 @@
+tr id="output_#{output.id}"
+  td= output.num
+  td= output.date
+  td= output.order
+  td= link_to t('outputs.show'), operator_output_path(output), class: 'btn btn-default'
+  td= link_to image_tag('remove.png'), operator_output_path(output), title: t('form.destroy'), data: {:confirm => t('form.confirm') }, :method => :delete, remote: true

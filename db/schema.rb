@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150922191738) do
+ActiveRecord::Schema.define(version: 20150928222430) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,6 +49,21 @@ ActiveRecord::Schema.define(version: 20150922191738) do
     t.string   "unit"
     t.decimal  "price",      default: 0.0
     t.decimal  "count",      default: 0.0
+  end
+
+  create_table "output_materials", force: :cascade do |t|
+    t.integer "output_id"
+    t.integer "material_id"
+    t.integer "count"
+  end
+
+  add_index "output_materials", ["material_id"], name: "index_output_materials_on_material_id", using: :btree
+  add_index "output_materials", ["output_id"], name: "index_output_materials_on_output_id", using: :btree
+
+  create_table "outputs", force: :cascade do |t|
+    t.string "num"
+    t.date   "date"
+    t.string "order"
   end
 
   create_table "product_groups", force: :cascade do |t|
@@ -109,6 +124,8 @@ ActiveRecord::Schema.define(version: 20150922191738) do
   add_foreign_key "input_materials", "inputs"
   add_foreign_key "input_materials", "materials"
   add_foreign_key "inputs", "providers"
+  add_foreign_key "output_materials", "materials"
+  add_foreign_key "output_materials", "outputs"
   add_foreign_key "product_materials", "materials"
   add_foreign_key "product_materials", "products"
   add_foreign_key "products", "colors"

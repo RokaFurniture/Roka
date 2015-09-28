@@ -1,0 +1,5 @@
+= simple_form_for [:operator, @output_material], html: { class: 'form-inline' }, remote: true do |f|
+  => f.hidden_field :output_id, value: @output.id || @output_material.product_id
+  => f.association :material, collection: Material.all.order(:name), include_blank: false, label_method: lambda { |x| "#{x.name << ' (' << x.option << ') (' << x.unit << ')'}".to_s }, label: false
+  => f.input :count, label: false, placeholder: t('count')
+  => f.submit t('form.add_new'), class: 'btn btn-success'
