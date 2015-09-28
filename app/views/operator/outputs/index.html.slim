@@ -1,0 +1,18 @@
+h1 =t('outputs.title')
+
+.col-md-12
+  = render 'form'
+
+table.table.outputs
+  thead
+    tr
+      th.col-md-3
+        = t('outputs.num')
+      th.col-md-3
+        = t('outputs.date')
+      th.col-md-3
+        = t('outputs.order')
+      th.col-md-2
+      th.col-md-1
+  tbody
+    = render @outputs

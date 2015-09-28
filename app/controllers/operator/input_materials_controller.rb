@@ -10,7 +10,8 @@ class Operator::InputMaterialsController < ApplicationController
   def create
     @input_material = InputMaterial.new(material_params)
     @input_material.save
-    @input_material.material.update(price: @input_material.price, count: @input_material.material.count + @input_material.count)
+    @input_material.material.update(count: @input_material.material.count +
+                                    @input_material.count)
   end
 
   def update
@@ -22,7 +23,8 @@ class Operator::InputMaterialsController < ApplicationController
       format.html { redirect_to operator_inputs_path }
       format.js {}
     end
-    @input_material.material.update(count: @input_material.material.count - @input_material.count)
+    @input_material.material.update(count: @input_material.material.count -
+                                    @input_material.count)
     @input_material.destroy
   end
 
