@@ -3,25 +3,26 @@ class Operator::OutputMaterialsController < ApplicationController
 
   layout 'operator'
 
+  def new
+    @output_material = OutputMaterial.new(output_id: params[:output])
+  end
+
   def edit
   end
 
   def create
     @output_material = OutputMaterial.new(material_params)
-    @output_material.save
+    render(:new) && return unless @output_material.save
     @output_material.material.update(count: @output_material.material.count -
                                     @output_material.count)
   end
 
   def update
-    @output_material.update(material_params)
+    render :edit unless @output_material.update(material_params)
   end
 
   def destroy
-    respond_to do |format|
-      format.html { redirect_to operator_outputs_path }
-      format.js {}
-    end
+    # TODO: show notification if error
     @output_material.material.update(count: @output_material.material.count +
                                     @output_material.count)
     @output_material.destroy

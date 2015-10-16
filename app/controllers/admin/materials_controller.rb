@@ -5,6 +5,9 @@ class Admin::MaterialsController < ApplicationController
 
   def index
     @materials = Material.all.order(:name)
+  end
+
+  def new
     @material = Material.new
   end
 
@@ -13,32 +16,15 @@ class Admin::MaterialsController < ApplicationController
 
   def create
     @material = Material.new(material_params)
-    respond_to do |format|
-      if @material.save
-        format.html { redirect_to admin_materials_path }
-        format.js {}
-      else
-        render :new
-      end
-    end
+    render :new unless @material.save
   end
 
   def update
-    respond_to do |format|
-      if @material.update(material_params)
-        format.html { redirect_to admin_materials_path }
-        format.js {}
-      else
-        render :edit
-      end
-    end
+    render :edit unless @material.update(material_params)
   end
 
   def destroy
-    respond_to do |format|
-      format.html { redirect_to admin_materials_path }
-      format.js {}
-    end
+    # TODO: show error notification
     @material.destroy
   end
 

@@ -1,8 +1,8 @@
-= simple_form_for [:admin, @user], html: { class: 'form-horizontal' } do |f|
-  => f.input :first_name, label: t('user.first_name')
-  => f.input :last_name, label: t('user.last_name')
-  => f.input :password, label: t('user.password')
-  => f.input :email, label: t('user.email')
-  => f.submit t('form.save'), class: 'btn btn-success'
-p
-=> link_to t('form.back'), admin_users_path, class: 'btn btn-default'
+.new
+  h2 = t("user.#{ @user.post }")
+  = simple_form_for [:admin, @user], remote: true, html: { class: 'form-horizontal' } do |f|
+    => f.hidden_field :post, value: @user.post
+    => f.input :name, label: t('user.name')
+    => f.input :email, label: t('user.email')
+    => f.input :password, label: t('user.password')
+    => f.submit t('form.save'), class: 'btn btn-success'

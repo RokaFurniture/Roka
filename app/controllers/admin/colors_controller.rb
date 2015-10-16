@@ -5,6 +5,9 @@ class Admin::ColorsController < ApplicationController
 
   def index
     @colors = Color.all.order(:name)
+  end
+
+  def new
     @color = Color.new
   end
 
@@ -13,28 +16,15 @@ class Admin::ColorsController < ApplicationController
 
   def create
     @color = Color.new(color_params)
-    respond_to do |format|
-      if @color.save
-        format.html { redirect_to admin_colors_path }
-        format.js {}
-      end
-    end
+    render :new unless @color.save
   end
 
   def update
-    respond_to do |format|
-      if @color.update(color_params)
-        format.html { redirect_to admin_colors_path }
-        format.js {}
-      end
-    end
+    render :edit unless @color.update(color_params)
   end
 
   def destroy
-    respond_to do |format|
-      format.html { redirect_to admin_colors_path }
-      format.js {}
-    end
+    # TODO: show error notification
     @color.destroy
   end
 

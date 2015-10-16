@@ -8,37 +8,24 @@ class Admin::SizesController < ApplicationController
     @size = Size.new
   end
 
+  def new
+    @size = Size.new
+  end
+
   def edit
   end
 
   def create
     @size = Size.new(size_params)
-    respond_to do |format|
-      if @size.save
-        format.html { redirect_to admin_sizes_path }
-        format.js {}
-      else
-        render :new
-      end
-    end
+    render :new unless @size.save
   end
 
   def update
-    respond_to do |format|
-      if @size.update(size_params)
-        format.html { redirect_to admin_sizes_path }
-        format.js {}
-      else
-        render :edit
-      end
-    end
+    render :edit unless @size.update(size_params)
   end
 
   def destroy
-    respond_to do |format|
-      format.html { redirect_to admin_sizes_path }
-      format.js {}
-    end
+    # TODO: show error notification
     @size.destroy
   end
 

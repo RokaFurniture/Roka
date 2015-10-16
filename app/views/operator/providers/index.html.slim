@@ -1,8 +1,6 @@
-h1 =t('provider.title')
+=> link_to t('provider.create'), new_operator_provider_path, remote: true, class: 'btn btn-success btn-raised'
 
-= render 'form'
-
-table.table.providers
+table.table
   thead
     tr
       th.col-md-3
@@ -12,5 +10,5 @@ table.table.providers
       th.col-md-3
         = t('provider.adress')
       th.col-md.3
-  tbody
+  tbody#providers
     = render @providers

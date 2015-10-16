@@ -1,7 +1,7 @@
-.row.flex.line id="color_#{color.id}"
-  .col-md-4.name
+.row.valign.bottom-line id="color_#{color.id}"
+  .col-md-3
     span #{color.name + ' (' + color.color.upcase + ')'}
   .col-md-5.show-color style="background-color: #{color.color}"
-  .col-md-3.buttons
-    => link_to t('form.edit'), edit_admin_color_path(color), class: 'btn btn-default', remote: true
-    => link_to t('form.destroy'), admin_color_path(color), data: {:confirm => t('form.confirm') }, :method => :delete, class: 'btn btn-danger'
+  .col-md-4.text-right
+    => link_to '', edit_admin_color_path(color), remote: true, class: 'btn btn-raised mdi-editor-border-color'
+    => link_to '', admin_color_path(color), data: {:confirm => t('form.confirm') }, :method => :delete, remote: true, class: 'btn btn-raised mdi-content-clear'

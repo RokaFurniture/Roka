@@ -7,30 +7,21 @@ class Admin::ProductMaterialsController < ApplicationController
     @product = @product_material.product
   end
 
+  def new
+    @product_material = ProductMaterial.new(product_id: params[:product_id])
+  end
+
   def create
     @product_material = ProductMaterial.new(material_params)
-    respond_to do |format|
-      if @product_material.save
-        format.html { redirect_to admin_products_path }
-        format.js {}
-      end
-    end
+    render :new unless @product_material.save
   end
 
   def update
-    respond_to do |format|
-      if @product_material.update(material_params)
-        format.html { redirect_to admin_products_path }
-        format.js {}
-      end
-    end
+    render :edit unless @product_material.update(material_params)
   end
 
   def destroy
-    respond_to do |format|
-      format.html { redirect_to admin_products_path }
-      format.js {}
-    end
+    # TODO: show error notification
     @product_material.destroy
   end
 

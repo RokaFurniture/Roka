@@ -1,5 +1,6 @@
 .navbar.navbar-default
   .container
+    = link_to 'Roka', root_path, class: 'navbar-brand'
     .collapse.navbar-collapse
       ul.nav.navbar-nav
         li class=active_class(:users) =link_to t('users'), admin_users_path

@@ -4,8 +4,11 @@ class Admin::ProductGroupsController < ApplicationController
   layout 'admin'
 
   def index
-    @product_group = ProductGroup.new
     @product_groups = ProductGroup.all.order(:name)
+  end
+
+  def new
+    @product_group = ProductGroup.new
   end
 
   def edit
@@ -13,32 +16,15 @@ class Admin::ProductGroupsController < ApplicationController
 
   def create
     @product_group = ProductGroup.new(group_params)
-    respond_to do |format|
-      if @product_group.save
-        format.html { redirect_to admin_products_path }
-        format.js {}
-      else
-        render :new
-      end
-    end
+    render :new unless @product_group.save
   end
 
   def update
-    respond_to do |format|
-      if @product_group.update(group_params)
-        format.html { redirect_to admin_products_path }
-        format.js {}
-      else
-        format.js { render :error, locals: { error_message: t('form.error') } }
-      end
-    end
+    render :edit unless @product_group.update(group_params)
   end
 
   def destroy
-    respond_to do |format|
-      format.html { redirect_to admin_products_path }
-      format.js {}
-    end
+    # TODO: show error notification
     @product_group.destroy
   end
 

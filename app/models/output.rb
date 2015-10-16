@@ -4,4 +4,6 @@ class Output < ActiveRecord::Base
 
   has_many :materials, through: :output_materials
   has_many :output_materials, dependent: :destroy
+
+  belongs_to :worker
 end

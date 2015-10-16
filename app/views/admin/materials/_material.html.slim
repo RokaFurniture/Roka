@@ -1,10 +1,8 @@
-.line.row id="material_#{material.id}"
-  .col-md-4
-    span.name-middle= material.name
-  .col-md-3
-    span.name-middle= material.option
+.row.valign.bottom-line. id="material_#{material.id}"
+  .col-md-6
+    span.name-middle= material.title
   .col-md-2
     span.name-middle= material.unit
-  .col-md-3.buttons
-    => link_to t('form.edit'), edit_admin_material_path(material), class: 'btn btn-default', remote: true
-    => link_to t('form.destroy'), admin_material_path(material), data: {:confirm => t('form.confirm') }, :method => :delete, remote: true, class: 'btn btn-danger'
+  .col-md-4.text-right
+    => link_to '', edit_admin_material_path(material), remote: true, class: 'btn btn-raised mdi-editor-border-color'
+    => link_to '', admin_material_path(material), data: {:confirm => t('form.confirm') }, :method => :delete, remote: true, class: 'btn btn-raised mdi-content-clear'

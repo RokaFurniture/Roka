@@ -1,6 +1,6 @@
 tr id="input_#{input.id}"
-  td= input.num
-  td= input.date
-  td= input.provider.name
-  td= link_to t('inputs.show'), operator_input_path(input), class: 'btn btn-default'
-  td= link_to image_tag('remove.png'), operator_input_path(input), title: t('form.destroy'), data: {:confirm => t('form.confirm') }, :method => :delete, remote: true
+  td.valign= input.num
+  td.valign= input.date
+  td.valign= input.provider.name
+  td.valign= link_to t('input.show'), operator_input_path(input), class: 'btn btn-raised'
+  td.valign= link_to '', operator_input_path(input), title: t('form.destroy'), data: {:confirm => t('form.confirm') }, :method => :delete, remote: true, class: 'btn btn-raised mdi-content-clear'

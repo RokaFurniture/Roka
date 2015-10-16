@@ -1,11 +1,8 @@
-.pd.row id="product_material_#{product_material.id}"
-  .col-md-7
-    span.name-middle
-      = "#{ product_material.material.name << ' (' << product_material.material.option << ')' }"
+.row.valign.bottom-line id="product_material_#{product_material.id}"
+  .col-md-6
+    span= "#{ product_material.material.name << ' (' << product_material.material.option << ')' }"
   .col-md-2
-    span.name-middle
-      = "#{ product_material.value.to_s << ' ' << product_material.material.unit }"
-  .col-md-3
-    => link_to t('form.edit'), edit_admin_product_material_path(product_material), remote: true, class: 'btn btn-default'
-    => link_to t('form.destroy'), admin_product_material_path(product_material), data: {:confirm => t('form.confirm') }, :method => :delete, remote: true, class: 'btn btn-danger'
-
+    span= "#{ product_material.value.to_s << ' ' << product_material.material.unit }"
+  .col-md-4.text-right
+    => link_to '', edit_admin_product_material_path(product_material), remote: true, class: 'btn btn-raised mdi-editor-border-color'
+    => link_to '', admin_product_material_path(product_material), data: {:confirm => t('form.confirm') }, :method => :delete, remote: true, class: 'btn btn-raised mdi-content-clear'
