@@ -1,8 +1,6 @@
 class Admin::ProductGroupsController < ApplicationController
   before_action :set_group, only: [:edit, :update, :destroy]
 
-  layout 'admin'
-
   def index
     @product_groups = ProductGroup.all.order(:name)
   end

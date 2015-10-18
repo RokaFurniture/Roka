@@ -1,0 +1,8 @@
+=> link_to t('order.create'), new_order_path, remote: true, class: 'btn btn-success btn-raised'
+
+.panel.panel-primary
+  .panel-heading
+    h2.panel-title
+      = t('order.list')
+  .panel-body#orders
+    = render @orders

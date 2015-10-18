@@ -1,4 +1,23 @@
 ru:
+  login_form:
+    title: 'Залогіньтесь, бадь ласка:'
+    login: 'Увійти'
+  logout: 'Вийти'
+  directory: 'Довідники'
+  order:
+    title: 'Замовлення'
+    list: 'Замовлення'
+    date: 'Дата'
+    number: 'Номер'
+    delivery_address: 'Адреса для доставки'
+    create: 'Створити замовлення'
+  customer:
+    create: 'Додати клієнта'
+    title: 'Клієнт'
+    list: 'Клієнти'
+    name: "Ім'я"
+    phone: 'Телефон'
+    address: 'Адреса'
   user:
     list: 'Керівництво'
     new: 'Новий користувач'
@@ -15,7 +34,7 @@ ru:
     title: 'Працівники'
     name: "Ім'я"
     new: 'Працівник'
-    list: 'Список кольорів'
+    list: 'Список працівників'
   color:
     name: 'Назва'
     new: 'Новий колір'
@@ -67,7 +86,8 @@ ru:
     level: 'Етап'
     title: 'Матеріал'
   storage:
-    name: "Склад - залишки"
+    title: "Склад"
+    leftover: 'Залишки'
     count: 'Залишок'
   provider:
     new: 'Постачальник'

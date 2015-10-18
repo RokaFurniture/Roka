@@ -1,0 +1,7 @@
+.new_customer
+  h3= t('customer.title')
+  = simple_form_for @customer, html: { class: 'form-horizontal' }, remote: true do |f|
+    => f.input :name, label: t('customer.name')
+    => f.input :phone, label: t('customer.phone')
+    => f.input :address, label: t('customer.address')
+    => f.submit t('form.save'), class: 'btn btn-success'

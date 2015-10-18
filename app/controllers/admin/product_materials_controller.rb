@@ -1,8 +1,6 @@
 class Admin::ProductMaterialsController < ApplicationController
   before_action :set_material, only: [:edit, :update, :destroy]
 
-  layout 'admin'
-
   def edit
     @product = @product_material.product
   end

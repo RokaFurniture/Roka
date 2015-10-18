@@ -5,13 +5,19 @@
 @import 'bootstrap';
 @import 'bootstrap-material-design';
 
-.translate_missing {
+.translation_missing {
   background-color: black;
   color: white;
 }
 
 body {
   background: url('/bg.jpg');
+}
+
+// login form
+.login {
+  width: 400px;
+  margin: 0 auto;
 }
 
 // separator between items in list
@@ -77,6 +83,6 @@ td {
   height: 320px;
 }
 
-.new_product_group, .new_product, .new_product_material, .new_input_material, .new_output_material, .new_output, .new_provider {
+.new_product_group, .new_product, .new_product_material, .new_input_material, .new_output_material, .new_output, .new_provider, .new_order, .new_customer {
   width: 300px;
 }

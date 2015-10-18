@@ -1,8 +1,6 @@
 class Operator::OutputMaterialsController < ApplicationController
   before_action :set_material, only: [:edit, :update, :destroy]
 
-  layout 'operator'
-
   def new
     @output_material = OutputMaterial.new(output_id: params[:output])
   end

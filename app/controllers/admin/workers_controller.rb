@@ -2,8 +2,6 @@ class Admin::WorkersController < ApplicationController
   before_action :require_admin
   before_action :set_worker, only: [:edit, :update, :destroy]
 
-  layout 'admin'
-
   def new
     @worker = Worker.new
   end
@@ -25,10 +23,6 @@ class Admin::WorkersController < ApplicationController
   end
 
   private
-
-  def require_admin
-    current_user.admin? ? return : redirect_to(root_url)
-  end
 
   def set_worker
     @worker = Worker.find(params[:id])

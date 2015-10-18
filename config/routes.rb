@@ -1,6 +1,9 @@
 Rails.application.routes.draw do
   root to: 'application#index'
+
   resource :sessions, only: [:new, :create, :destroy]
+
+  resources :orders, :customers
 
   namespace :admin do
     root to: '/admin#index'

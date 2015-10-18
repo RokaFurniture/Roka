@@ -2,8 +2,6 @@ class Admin::UsersController < ApplicationController
   before_action :require_admin
   before_action :set_user, only: [:edit, :update, :destroy]
 
-  layout 'admin'
-
   def index
     @users = User.where.not(post: 'admin').order(:post)
     @workers = Worker.all
@@ -31,10 +29,6 @@ class Admin::UsersController < ApplicationController
   end
 
   private
-
-  def require_admin
-    current_user.admin? ? return : redirect_to(root_url)
-  end
 
   def set_user
     @user = User.find(params[:id])

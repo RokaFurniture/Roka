@@ -1,0 +1,10 @@
+.row.valign.bottom-line id="customer_#{customer.id}"
+  .col-md-3
+    span= customer.name
+  .col-md-3
+    span.name-middle= customer.phone
+  .col-md-3
+    span.name-middle= customer.address
+  .col-md-3.text-right
+    => link_to '', edit_customer_path(customer), remote: true, class: 'btn btn-raised mdi-editor-border-color'
+    => link_to '', customer_path(customer), data: {:confirm => t('form.confirm') }, :method => :delete, remote: true, class: 'btn btn-raised mdi-content-clear'

@@ -1,8 +1,6 @@
 class Admin::ColorsController < ApplicationController
   before_action :set_color, only: [:edit, :update, :destroy]
 
-  layout 'admin'
-
   def index
     @colors = Color.all.order(:name)
   end

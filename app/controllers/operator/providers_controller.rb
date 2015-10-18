@@ -1,6 +1,4 @@
 class Operator::ProvidersController < ApplicationController
-  layout 'operator'
-
   before_action :set_provider, only: [:edit, :update, :destroy]
 
   def index

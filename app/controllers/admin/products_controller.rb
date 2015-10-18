@@ -2,8 +2,6 @@ class Admin::ProductsController < ApplicationController
   before_action :set_product, only: [:show, :edit, :update, :destroy]
   skip_before_action :authorize
 
-  layout 'admin'
-
   def index
     @products = Product.all.order(:product_group_id)
   end

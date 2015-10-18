@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151005000221) do
+ActiveRecord::Schema.define(version: 20151018140714) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,6 +19,14 @@ ActiveRecord::Schema.define(version: 20151005000221) do
   create_table "colors", force: :cascade do |t|
     t.string   "name"
     t.string   "color"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "customers", force: :cascade do |t|
+    t.string   "name"
+    t.string   "phone"
+    t.string   "address"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -50,6 +58,17 @@ ActiveRecord::Schema.define(version: 20151005000221) do
     t.decimal  "price",      default: 0.0
     t.decimal  "count",      default: 0.0
   end
+
+  create_table "orders", force: :cascade do |t|
+    t.string   "number"
+    t.string   "delivery_address"
+    t.integer  "customer_id"
+    t.date     "date"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
+
+  add_index "orders", ["customer_id"], name: "index_orders_on_customer_id", using: :btree
 
   create_table "output_materials", force: :cascade do |t|
     t.integer "output_id"
@@ -130,6 +149,7 @@ ActiveRecord::Schema.define(version: 20151005000221) do
   add_foreign_key "input_materials", "inputs"
   add_foreign_key "input_materials", "materials"
   add_foreign_key "inputs", "providers"
+  add_foreign_key "orders", "customers"
   add_foreign_key "output_materials", "materials"
   add_foreign_key "output_materials", "outputs"
   add_foreign_key "outputs", "workers"

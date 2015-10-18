@@ -1,8 +1,6 @@
 class Operator::OutputsController < ApplicationController
   before_action :set_output, only: [:show, :edit, :update, :destroy]
 
-  layout 'operator'
-
   def index
     @outputs = Output.all
   end

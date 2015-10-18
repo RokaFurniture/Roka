@@ -12,6 +12,10 @@ class ApplicationController < ActionController::Base
 
   private
 
+  def require_admin
+    current_user.admin? ? return : redirect_to(root_url)
+  end
+
   def current_user
     @current_user ||= User.find(session[:user_id]) if session[:user_id]
   end

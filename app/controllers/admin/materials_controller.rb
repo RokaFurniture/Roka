@@ -1,8 +1,6 @@
 class Admin::MaterialsController < ApplicationController
   before_action :set_material, only: [:edit, :update, :destroy]
 
-  layout 'admin'
-
   def index
     @materials = Material.all.order(:name)
   end

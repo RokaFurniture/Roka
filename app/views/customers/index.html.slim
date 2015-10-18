@@ -1,0 +1,8 @@
+=> link_to t('customer.create'), new_customer_path, remote: true, class: 'btn btn-success btn-raised'
+
+.panel.panel-primary
+  .panel-heading
+    h2.panel-title
+      = t('customer.list')
+  .panel-body#customers
+    = render @customers

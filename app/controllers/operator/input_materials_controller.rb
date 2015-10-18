@@ -1,8 +1,6 @@
 class Operator::InputMaterialsController < ApplicationController
   before_action :set_material, only: [:edit, :update, :destroy]
 
-  layout 'operator'
-
   def new
     @input_material = InputMaterial.new(input_id: params[:input])
   end

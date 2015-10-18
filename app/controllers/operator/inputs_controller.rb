@@ -1,8 +1,6 @@
 class Operator::InputsController < ApplicationController
   before_action :set_input, only: [:show, :edit, :update, :destroy]
 
-  layout 'operator'
-
   def index
     @inputs = Input.all
   end

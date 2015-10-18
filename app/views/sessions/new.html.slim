@@ -1,4 +1,6 @@
+.login
+  h2= t('login_form.title')
   = simple_form_for :user, url: { controller: 'sessions', action: 'create'}, class: 'form-horizontal' do |f|
     = f.input :email
     = f.input :password
-    = f.submit 'Login'
+    = f.submit t('login_form.login'), class: 'btn btn-success'

@@ -1,8 +1,6 @@
 class Admin::SizesController < ApplicationController
   before_action :set_size, only: [:edit, :update, :destroy]
 
-  layout 'admin'
-
   def index
     @sizes = Size.all.order(:product_group_id)
     @size = Size.new
