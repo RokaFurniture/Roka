@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   protected
 
   def authorize
-    redirect_to new_sessions_path unless session[:user_id]
+    redirect_to '/login' unless session[:user_id]
   end
 
   helper_method :current_user

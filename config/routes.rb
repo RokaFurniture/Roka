@@ -3,6 +3,7 @@ Rails.application.routes.draw do
 
   resource :sessions, only: [:new, :create, :destroy]
 
+  get 'login', to: 'sessions#new'
   resources :orders, :customers
 
   namespace :admin do
