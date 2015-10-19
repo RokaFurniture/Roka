@@ -1,1 +1,1 @@
-$(".product").replaceWith("<%= j(render 'form_edit') %>")
+$.lazybox("<%= j(render 'form') %>")

@@ -1,0 +1,8 @@
+.new_product_material
+  h3= t('product_material.title')
+  = simple_form_for [:admin, @product_material], html: { class: 'form-horizontal' }, remote: true do |f|
+    => f.hidden_field :product_id
+    => f.input :level, collection: ProductMaterial.levels.keys.map{ |x| t("product.#{x}") }.zip(ProductMaterial.levels.keys), label: t('product_material.level'), selected: '0'
+    => f.association :material, collection: Material.all.order(:name), label_method: lambda { |x| "#{x.name << ' (' << x.option << ') (' << x.unit << ')'}".to_s }, label: t('material.title')
+    => f.input :value, label: t('value')
+    => f.submit t('form.save'), class: 'btn btn-success'

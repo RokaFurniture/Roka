@@ -1,5 +1,8 @@
-= simple_form_for [:operator, @output], html: { class: 'form-inline' }, remote: true do |f|
-  => f.input :num, label: false, placeholder: t('outputs.num'), input_html: { size: 15 }
-  => f.input :date, as: :string, label: false, placeholder: t('outputs.date'), input_html: { size: 10 }
-  => f.input :order, label: false, placeholder: t('outputs.order')
-  => f.submit t('form.create'), class: 'btn btn-success'
+.new_output
+  h3= t('output.title')
+  = simple_form_for [:operator, @output], remote: true, html: { class: 'form-horizontal' } do |f|
+    => f.input :num, label: t('output.num')
+    => f.input :date, as: :date, label: t('output.date')
+    => f.input :order, label: t('output.order')
+    => f.association :worker, label: t('output.worker')
+    => f.submit t('form.create'), class: 'btn btn-success btn-raised'

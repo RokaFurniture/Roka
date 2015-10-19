@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150928222430) do
+ActiveRecord::Schema.define(version: 20151018140714) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -19,6 +19,14 @@ ActiveRecord::Schema.define(version: 20150928222430) do
   create_table "colors", force: :cascade do |t|
     t.string   "name"
     t.string   "color"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "customers", force: :cascade do |t|
+    t.string   "name"
+    t.string   "phone"
+    t.string   "address"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -51,6 +59,17 @@ ActiveRecord::Schema.define(version: 20150928222430) do
     t.decimal  "count",      default: 0.0
   end
 
+  create_table "orders", force: :cascade do |t|
+    t.string   "number"
+    t.string   "delivery_address"
+    t.integer  "customer_id"
+    t.date     "date"
+    t.datetime "created_at",       null: false
+    t.datetime "updated_at",       null: false
+  end
+
+  add_index "orders", ["customer_id"], name: "index_orders_on_customer_id", using: :btree
+
   create_table "output_materials", force: :cascade do |t|
     t.integer "output_id"
     t.integer "material_id"
@@ -61,10 +80,13 @@ ActiveRecord::Schema.define(version: 20150928222430) do
   add_index "output_materials", ["output_id"], name: "index_output_materials_on_output_id", using: :btree
 
   create_table "outputs", force: :cascade do |t|
-    t.string "num"
-    t.date   "date"
-    t.string "order"
+    t.string  "num"
+    t.date    "date"
+    t.string  "order"
+    t.integer "worker_id"
   end
+
+  add_index "outputs", ["worker_id"], name: "index_outputs_on_worker_id", using: :btree
 
   create_table "product_groups", force: :cascade do |t|
     t.string "name"
@@ -113,19 +135,24 @@ ActiveRecord::Schema.define(version: 20150928222430) do
   add_index "sizes", ["product_group_id"], name: "index_sizes_on_product_group_id", using: :btree
 
   create_table "users", force: :cascade do |t|
-    t.string   "first_name"
-    t.string   "last_name"
-    t.string   "password"
-    t.string   "email"
-    t.datetime "created_at", null: false
-    t.datetime "updated_at", null: false
+    t.string  "email"
+    t.string  "name"
+    t.string  "password_digest"
+    t.integer "post"
+  end
+
+  create_table "workers", force: :cascade do |t|
+    t.string "name"
+    t.string "info"
   end
 
   add_foreign_key "input_materials", "inputs"
   add_foreign_key "input_materials", "materials"
   add_foreign_key "inputs", "providers"
+  add_foreign_key "orders", "customers"
   add_foreign_key "output_materials", "materials"
   add_foreign_key "output_materials", "outputs"
+  add_foreign_key "outputs", "workers"
   add_foreign_key "product_materials", "materials"
   add_foreign_key "product_materials", "products"
   add_foreign_key "products", "colors"

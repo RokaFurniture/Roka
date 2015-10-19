@@ -1,15 +1,7 @@
-h1 =t('product_groups')
-
-.panel.panel-success
-  .panel-heading
-    h3 class='panel-title'
-      = t('product_group.new')
-  .panel-body
-    = render 'form'
+=> link_to t('product_group.create'), new_admin_product_group_path, remote: true, class: 'btn btn-success btn-raised'
 
 .panel.panel-primary
   .panel-heading
-    h3 class='panel-title' =t('product_group.list')
-  .panel-body.product_groups
-    - unless @product_groups.empty?
-      = render @product_groups
+    h2.panel-title =t('product_group.list')
+  .panel-body#product_groups
+    = render @product_groups

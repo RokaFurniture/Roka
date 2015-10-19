@@ -1,22 +1,17 @@
-h1 =t('users')
-= link_to t('create'), new_admin_user_path, class: 'btn btn-success'
+=> link_to t('user.create.manager'), new_admin_user_path(post: 'manager'), remote: true, class: 'btn btn-success btn-raised'
+=> link_to t('user.create.operator'), new_admin_user_path(post: 'operator'), remote: true, class: 'btn btn-success btn-raised'
+=> link_to t('user.create.worker'), new_admin_worker_path, remote: true, class: 'btn btn-success btn-raised'
 
-- unless @users.empty?
-  table class='table table-striped'
-    thead
-      tr
-        th #{t('user.first_name') + ' ' + t('user.last_name')}
-        th =t('user.email')
-        th
-    tbody
-      - @users.each do |user|
-        tr id="user_#{user.id}"
-          td #{user.first_name + ' ' + user.last_name}
-          td= user.email
-          td
-            => link_to t('form.edit'), edit_admin_user_path(user), class: 'btn btn-default', remote: true
-            => link_to t('form.destroy'), admin_user_path(user), data: {:confirm => t('form.confirm') }, :method => :delete, class: 'btn btn-danger'
-- else
-  h2 =t('user.empty')
+.panel.panel-primary
+  .panel-heading
+    h2.panel-title
+      = t('user.list')
+  .panel-body#users
+    = render @users
 
-
+.panel.panel-primary
+  .panel-heading
+    h2.panel-title
+      = t('worker.list')
+  .panel-body#workers
+    = render @workers

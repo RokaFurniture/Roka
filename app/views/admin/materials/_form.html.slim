@@ -1,5 +1,7 @@
-= simple_form_for [:admin, @material], html: { class: 'form-inline' }, remote: true do |f|
-  => f.input :name, label: false, placeholder: t('material.name')
-  => f.input :option, label: false, placeholder: t('material.parameter')
-  => f.input :unit, label: false, placeholder: t('material.unit')
-  => f.submit t('form.save'), class: 'btn btn-success'
+.new_material
+  h3= t('material.title')
+  = simple_form_for [:admin, @material], html: { class: 'form-horizontal' }, remote: true do |f|
+    => f.input :name, label: t('material.name')
+    => f.input :option, label: t('material.option')
+    => f.input :unit, label: t('material.unit')
+    => f.submit t('form.save'), class: 'btn btn-success'

@@ -1,0 +1,6 @@
+.worker.valign.row.bottom-line id="worker_#{worker.id}"
+  .col-md-8
+    = worker.name
+  .col-md-4.text-right
+    => link_to '', edit_admin_worker_path(worker), remote: true, class: 'btn btn-raised mdi-editor-border-color'
+    => link_to '', admin_worker_path(worker), data: {:confirm => t('form.confirm') }, :method => :delete, remote: true, class: 'btn btn-raised mdi-content-clear'

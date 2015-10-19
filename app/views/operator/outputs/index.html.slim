@@ -1,18 +1,14 @@
-h1 =t('outputs.title')
-
-.col-md-12
-  = render 'form'
+=> link_to t('output.create'), new_operator_output_path, remote: true, class: 'btn btn-success btn-raised'
 
 table.table.outputs
   thead
     tr
-      th.col-md-3
-        = t('outputs.num')
-      th.col-md-3
-        = t('outputs.date')
-      th.col-md-3
-        = t('outputs.order')
       th.col-md-2
-      th.col-md-1
-  tbody
+        = t('output.num')
+      th.col-md-2
+        = t('output.date')
+      th.col-md-4
+        = t('output.order')
+      th.col-md-4
+  tbody#outputs
     = render @outputs

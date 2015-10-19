@@ -1,20 +1,16 @@
-h1 =t('inputs.title')
-
-.col-md-10
-  = render 'form'
-.col-md-2
-  = link_to t('provider.new'), new_operator_provider_path, class: 'btn btn-warning', remote: true
+=> link_to t('input.create'), new_operator_input_path, remote: true, class: 'btn btn-success btn-raised'
+=> link_to t('provider.create'), new_operator_provider_path, remote: true, class: 'btn btn-info btn-raised'
 
 table.table.inputs
   thead
     tr
       th.col-md-3
-        = t('inputs.num')
+        = t('input.num')
       th.col-md-3
-        = t('inputs.date')
+        = t('input.date')
       th.col-md-3
-        = t('inputs.provider')
+        = t('input.provider')
       th.col-md-2
       th.col-md-1
-  tbody
+  tbody#inputs
     = render @inputs

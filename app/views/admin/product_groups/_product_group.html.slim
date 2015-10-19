@@ -1,6 +1,6 @@
-.row.line id="product_group_#{product_group.id}"
-  .col-md-9
-    span.name-middle= product_group.name
-  .col-md-3.buttons
-    => link_to t('form.edit'), edit_admin_product_group_path(product_group), class: 'btn btn-default', remote: true
-    => link_to t('form.destroy'), admin_product_group_path(product_group), data: {:confirm => t('form.confirm') }, :method => :delete, remote: true, class: 'btn btn-danger'
+.row.valign.bottom-line id="product_group_#{product_group.id}"
+  .col-md-8
+    span= product_group.name
+  .col-md-4.text-right
+    => link_to '', edit_admin_product_group_path(product_group), remote: true, class: 'btn btn-raised mdi-editor-border-color'
+    => link_to '', admin_product_group_path(product_group), data: {:confirm => t('form.confirm') }, :method => :delete, remote: true, class: 'btn btn-raised mdi-content-clear'

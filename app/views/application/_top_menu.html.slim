@@ -1,0 +1,33 @@
+.navbar.navbar-default
+  .container
+    = link_to 'Roka', orders_path, class: 'navbar-brand'
+    .collapse.navbar-collapse
+
+      ul.nav.navbar-nav
+        li class=active_class(:orders) =link_to t('order.list'), orders_path
+        - if current_user.admin?
+          li class=active_class(:users) =link_to t('users'), admin_users_path
+        - if current_user.manager? || current_user.admin?
+          li class='dropdown'
+            = link_to '#', class: 'dropdown-toggle', data: { toggle: "dropdown", role: "button", haspopup: "true", expanded: "false" } do
+              = t('directory')
+              span.caret
+            ul.dropdown-menu
+              li class=active_class(:colors) =link_to t('colors'), admin_colors_path
+              li class=active_class(:materials) =link_to t('materials'), admin_materials_path
+              li class=active_class(:product_groups) =link_to t('product_groups'), admin_product_groups_path
+              li class=active_class(:products) =link_to t('products'), admin_products_path
+              li class=active_class(:sizes) =link_to t('sizes'), admin_sizes_path
+              li class=active_class(:customers) = link_to t('customer.list'), customers_path
+              li class=active_class(:providers) =link_to t('provider.title'), operator_providers_path
+        li class='dropdown'
+          = link_to '#', class: 'dropdown-toggle', data: { toggle: "dropdown", role: "button", haspopup: "true", expanded: "false" } do
+            = t('storage.title')
+            span.caret
+          ul.dropdown-menu
+            li class=active_class(:storage) =link_to t('storage.leftover'), operator_storage_path
+            li class=active_class(:inputs) =link_to t('input.title'), operator_inputs_path
+            li class=active_class(:outputs) =link_to t('output.title'), operator_outputs_path
+      ul.nav.navbar-nav.navbar-right
+        li= link_to current_user.name, '#'
+        li= link_to t('logout'), sessions_path, method: :delete

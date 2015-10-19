@@ -1,14 +1,12 @@
 class Operator::OutputsController < ApplicationController
   before_action :set_output, only: [:show, :edit, :update, :destroy]
 
-  layout 'operator'
-
   def index
-    @output = Output.new
     @outputs = Output.all
   end
 
   def new
+    @output = Output.new
   end
 
   def show
@@ -21,29 +19,16 @@ class Operator::OutputsController < ApplicationController
 
   def create
     @output = Output.new(output_params)
-    respond_to do |format|
-      if @output.save
-        format.html { redirect_to admin_outputs_path }
-        format.js {}
-      end
-    end
+    render :new unless @output.save
   end
 
   def update
-    respond_to do |format|
-      if @output.update(output_params)
-        format.html { redirect_to admin_outputs_path }
-        format.js {}
-      end
-    end
+    render :edit unless @output.update(output_params)
   end
 
   def destroy
-    respond_to do |format|
-      format.html { redirect_to admin_outputs_path }
-      format.js {}
-    end
     @output.destroy
+    # TODO: show notification if can't delete item
   end
 
   private

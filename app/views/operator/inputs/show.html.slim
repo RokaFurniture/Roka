@@ -1,24 +1,16 @@
-p
-  span.bold= "#{t('inputs.num')}: "
-  span= "#{@input.num}"
-p
-  span.bold= "#{t('inputs.date')}: "
-  span= "#{@input.date}"
-p
-  span.bold= "#{t('inputs.provider')}: "
-  span= "#{@input.provider.name}"
+= render 'input_show'
+
+= link_to t('input_material.create'), new_operator_input_material_path(input: @input.id), remote: true, class: 'btn btn-raised btn-success'
 
 table.table.input_materials
   thead
     tr
-      th.col-md-6
+      th.col-md-4
         = t('material.title')
       th.col-md-2
         = t('count')
       th.col-md-2
         = t('price')
-      th.col-md.2
+      th.col-md.4
   tbody#materials
     = render partial: 'operator/input_materials/input_material', collection: @materials
-
-= render 'operator/input_materials/form'

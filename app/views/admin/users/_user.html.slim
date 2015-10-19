@@ -1,0 +1,10 @@
+.user.valign.bottom-line.row id="user_#{user.id}"
+  .col-md-2
+    = t("user.#{user.post}")
+  .col-md-3
+    = user.name
+  .col-md-3
+    = user.email
+  .col-md-4.text-right
+    /* => link_to '', edit_admin_user_path(user), remote: true, class: 'btn btn-raised mdi-editor-border-color' */
+    => link_to '', admin_user_path(user), data: {:confirm => t('form.confirm') }, :method => :delete, remote: true, class: 'btn btn-raised mdi-content-clear'

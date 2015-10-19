@@ -1,28 +1,27 @@
 class Operator::InputMaterialsController < ApplicationController
   before_action :set_material, only: [:edit, :update, :destroy]
 
-  layout 'operator'
+  def new
+    @input_material = InputMaterial.new(input_id: params[:input])
+  end
+
+  def create
+    @input_material = InputMaterial.new(material_params)
+    render :new && return unless @input_material.save
+    @input_material.material.update(count: @input_material.material.count +
+                                    @input_material.count)
+  end
 
   def edit
     # @input = @input_material.product
   end
 
-  def create
-    @input_material = InputMaterial.new(material_params)
-    @input_material.save
-    @input_material.material.update(count: @input_material.material.count +
-                                    @input_material.count)
-  end
-
   def update
-    @input_material.update(material_params)
+    render :edit unless @input_material.update(material_params)
   end
 
   def destroy
-    respond_to do |format|
-      format.html { redirect_to operator_inputs_path }
-      format.js {}
-    end
+    # TODO: show error notification
     @input_material.material.update(count: @input_material.material.count -
                                     @input_material.count)
     @input_material.destroy

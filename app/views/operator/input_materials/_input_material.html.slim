@@ -1,10 +1,10 @@
 tr id="input_material_#{input_material.id}"
-  td.col-md-3
+  td.col-md-4.valign
     = input_material.material.title
-  td.col-md-3
+  td.col-md-2.valign
     = input_material.count
-  td.col-md-3
+  td.col-md-2.valign
     = input_material.price
-  td.col-md.3
+  td.col-md.4.valign.text-right
     /* => link_to t('form.edit'), edit_admin_product_material_path(product_material), remote: true, class: 'btn btn-default' */
-    => link_to image_tag('remove.png'), operator_input_material_path(input_material), data: {:confirm => t('form.confirm') }, :method => :delete, remote: true
+    => link_to '', operator_input_material_path(input_material), data: {:confirm => t('form.confirm') }, :method => :delete, remote: true, class: 'btn btn-raised mdi-content-clear'

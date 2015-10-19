@@ -1,0 +1,10 @@
+.row.valign.bottom-line id="order_#{order.id}"
+  .col-md-2
+    span= order.number
+  .col-md-2
+    span.name-middle= order.date
+  .col-md-4
+    span.name-middle= order.customer.name
+  .col-md-4.text-right
+    => link_to '', edit_order_path(order), remote: true, class: 'btn btn-raised mdi-editor-border-color'
+    => link_to '', order_path(order), data: {:confirm => t('form.confirm') }, :method => :delete, remote: true, class: 'btn btn-raised mdi-content-clear'

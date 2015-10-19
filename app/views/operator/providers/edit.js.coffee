@@ -1,1 +1,1 @@
-$("#provider_<%= @provider.id %>").html("<%= j(render 'form') %>")
+$.lazybox("<%= j(render 'form') %>")

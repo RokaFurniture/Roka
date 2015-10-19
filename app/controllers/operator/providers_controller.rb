@@ -1,10 +1,7 @@
 class Operator::ProvidersController < ApplicationController
-  layout 'operator'
-
   before_action :set_provider, only: [:edit, :update, :destroy]
 
   def index
-    @provider = Provider.new
     @providers = Provider.all.order(:name)
   end
 
@@ -17,32 +14,15 @@ class Operator::ProvidersController < ApplicationController
 
   def create
     @provider = Provider.new(provider_params)
-    respond_to do |format|
-      if @provider.save
-        format.html { redirect_to operator_providers_path }
-        format.js {}
-      else
-        render :new
-      end
-    end
+    render :new unless @provider.save
   end
 
   def update
-    respond_to do |format|
-      if @provider.update(provider_params)
-        format.html { redirect_to operator_providers_path }
-        format.js {}
-      else
-        render :edit
-      end
-    end
+    render :edit unless @provider.update(provider_params)
   end
 
   def destroy
-    respond_to do |format|
-      format.html { redirect_to operator_providers_path }
-      format.js {}
-    end
+    # TODO: show error notification
     @provider.destroy
   end
 

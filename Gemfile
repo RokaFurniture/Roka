@@ -1,5 +1,6 @@
 source 'https://rubygems.org'
 
+gem 'bcrypt-ruby'
 gem 'rails', '4.2.3'
 gem 'pg'
 gem 'sass-rails', '~> 5.0'
@@ -19,7 +20,9 @@ gem 'autoprefixer-rails'
 gem 'rails-i18n'
 gem 'simple_form'
 gem 'jquery-minicolors-rails'
-gem "airbrake"
+gem 'airbrake'
+gem 'bootstrap-material-design'
+gem 'material_design_lite-rails'
 
 group :development, :test do
   gem 'pry'

@@ -1,15 +1,7 @@
-h1 =t('materials')
+=> link_to t('material.create'), new_admin_material_path, remote: true, class: 'btn btn-success btn-raised'
 
-.panel.panel-success
+.panel.panel-primary
   .panel-heading
-    h3 class='panel-title'
-      = t('material.new')
-  .panel-body
-    = render 'form'
-p
-  .panel.panel-primary
-    .panel-heading
-      h3 class='panel-title' =t('material.list')
-    .panel-body.materials
-      - unless @materials.empty?
-        = render @materials
+    h2.panel-title =t('material.list')
+  .panel-body#materials
+    = render @materials

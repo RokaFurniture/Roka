@@ -4,8 +4,10 @@
 //= require jquery-ui/effect-highlight
 //= require jquery-ui/datepicker
 //= require jquery-ui/datepicker-uk
-//= require bootstrap-sprockets
+//= require bootstrap
+//= require bootstrap-material-design
 //= require lazybox
+//= require material
 //= require jquery.minicolors
 //= require jquery.minicolors.simple_form
 //= require_tree .
