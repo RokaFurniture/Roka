@@ -1,7 +1,10 @@
-tr id="output_#{output.id}"
-  td= output.num
-  td= output.date
-  td= output.order
-  td.text-right
+.row.valign.bottom-line id="output_#{output.id}"
+  .col-md-3
+    span= output.num
+  .col-md-2
+    span.name-middle= output.date
+  .col-md-4
+    span.name-middle= output.order
+  .col-md-3.text-right
     => link_to t('output.show'), operator_output_path(output), class: 'btn btn-default btn-raised'
     => link_to '', operator_output_path(output), title: t('form.destroy'), data: {:confirm => t('form.confirm') }, :method => :delete, remote: true, class: 'btn btn-raised mdi-content-clear'

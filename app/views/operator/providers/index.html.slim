@@ -1,14 +1,8 @@
 => link_to t('provider.create'), new_operator_provider_path, remote: true, class: 'btn btn-success btn-raised'
 
-table.table
-  thead
-    tr
-      th.col-md-3
-        = t('provider.name')
-      th.col-md-3
-        = t('provider.phone')
-      th.col-md-3
-        = t('provider.adress')
-      th.col-md.3
-  tbody#providers
+.panel.panel-primary
+  .panel-heading
+    h2.panel-title
+      = t('provider.list')
+  .panel-body#providers
     = render @providers

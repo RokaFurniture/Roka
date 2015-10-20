@@ -1,6 +1,10 @@
-tr id="input_#{input.id}"
-  td.valign= input.num
-  td.valign= input.date
-  td.valign= input.provider.name
-  td.valign= link_to t('input.show'), operator_input_path(input), class: 'btn btn-raised'
-  td.valign= link_to '', operator_input_path(input), title: t('form.destroy'), data: {:confirm => t('form.confirm') }, :method => :delete, remote: true, class: 'btn btn-raised mdi-content-clear'
+.row.valign.bottom-line id="input_#{input.id}"
+  .col-md-2
+    span= input.num
+  .col-md-2
+    span.name-middle= input.date
+  .col-md-3
+    span.name-middle= input.provider.name
+  .col-md-5.text-right
+    => link_to t('input.show'), operator_input_path(input), class: 'btn btn-raised'
+    => link_to '', operator_input_path(input), title: t('form.destroy'), data: {:confirm => t('form.confirm') }, :method => :delete, remote: true, class: 'btn btn-raised mdi-content-clear'

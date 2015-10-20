@@ -1,14 +1,14 @@
 => link_to t('output.create'), new_operator_output_path, remote: true, class: 'btn btn-success btn-raised'
 
-table.table.outputs
-  thead
-    tr
-      th.col-md-2
-        = t('output.num')
-      th.col-md-2
-        = t('output.date')
-      th.col-md-4
-        = t('output.order')
-      th.col-md-4
-  tbody#outputs
+.panel.panel-primary
+  .panel-heading
+    .panel-title.row
+      .col-md-3
+        span= t('output.num')
+      .col-md-2
+        span.name-middle= t('output.date')
+      .col-md-4
+        span.name-middle= t('output.order')
+      .col-md-3
+  .panel-body#outputs
     = render @outputs
