@@ -6,5 +6,5 @@
   .col-md-4
     span.name-middle= order.customer.name
   .col-md-4.text-right
-    => link_to '', edit_order_path(order), remote: true, class: 'btn btn-raised mdi-editor-border-color'
+    => link_to t('order.cart'), order_path(order), class: 'btn btn-raised btn-default'
     => link_to '', order_path(order), data: {:confirm => t('form.confirm') }, :method => :delete, remote: true, class: 'btn btn-raised mdi-content-clear'

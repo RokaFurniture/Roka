@@ -23,6 +23,8 @@ gem 'jquery-minicolors-rails'
 gem 'airbrake'
 gem 'bootstrap-material-design'
 gem 'material_design_lite-rails'
+gem 'pdfkit'
+gem 'wkhtmltopdf-binary'
 
 group :development, :test do
   gem 'pry'

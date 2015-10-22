@@ -1,5 +1,5 @@
 class Product < ActiveRecord::Base
-  validates :name, :product_group, :size, :color, presence: true
+  validates :name, :product_group, :size, presence: true
   validates :image, allow_blank: true, format: { with: /\.(jpg|png)/ }
 
   belongs_to :product_group

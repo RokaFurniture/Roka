@@ -7,10 +7,19 @@ ru:
   order:
     title: 'Замовлення'
     list: 'Замовлення'
-    date: 'Дата'
+    date: 'Дата прийняття'
+    deadline: 'Здати до'
     number: 'Номер'
+    comment: 'Коментар до замовлення'
     delivery_address: 'Адреса для доставки'
     create: 'Створити замовлення'
+    cart: 'Карта замовлення'
+  order_product:
+    list: 'Список замовлених товарів'
+    create: 'Додати товар'
+    count: 'Кількість'
+    patina: 'Патіна'
+    comment: 'Коментар до товару'
   customer:
     create: 'Додати клієнта'
     title: 'Клієнт'
@@ -51,10 +60,12 @@ ru:
     unit: 'Одиниця виміру'
     empty: 'Матеріалів немає'
   product:
+    title: 'Товар'
     create: 'Додати продукт'
     cart: 'Карта продукту'
     list: 'Список продуктів'
     name: 'Назва'
+    comment: 'Коментар'
     description: 'Опис'
     empty: 'Продуктів немає'
     image: 'Фото'
