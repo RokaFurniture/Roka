@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151021202432) do
+ActiveRecord::Schema.define(version: 20151022085456) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -127,10 +127,8 @@ ActiveRecord::Schema.define(version: 20151021202432) do
     t.integer "product_group_id"
     t.string  "image"
     t.integer "size_id"
-    t.integer "color_id"
   end
 
-  add_index "products", ["color_id"], name: "index_products_on_color_id", using: :btree
   add_index "products", ["product_group_id"], name: "index_products_on_product_group_id", using: :btree
   add_index "products", ["size_id"], name: "index_products_on_size_id", using: :btree
 
@@ -176,7 +174,6 @@ ActiveRecord::Schema.define(version: 20151021202432) do
   add_foreign_key "outputs", "workers"
   add_foreign_key "product_materials", "materials"
   add_foreign_key "product_materials", "products"
-  add_foreign_key "products", "colors"
   add_foreign_key "products", "sizes"
   add_foreign_key "sizes", "product_groups"
 end
