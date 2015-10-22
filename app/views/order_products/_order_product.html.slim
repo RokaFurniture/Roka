@@ -4,7 +4,7 @@
   .col-md-1
     span= order_product.color.name
   .col-md-2
-    span= order_product.size.name
+    span= order_product.size.name unless order_product.size.name.blank?
   .col-md-1
     span= order_product.count
   .col-md-1
