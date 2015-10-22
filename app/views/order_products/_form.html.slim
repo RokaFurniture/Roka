@@ -4,7 +4,7 @@
     => f.hidden_field :order_id
     => f.association :product, collection: Product.all.order(:name), allow_blank: false, label: t('product.name')
     => f.association :color, collection: Color.all.order(:name), allow_blank: false, label: t('color.title')
-    => f.association :size, collection: Size.all, allow_blank: false, label_method: :name, label: t('size.title')
+    => f.association :size, collection: Size.all, allow_blank: true, label_method: :name, label: t('size.title')
     => f.input :count, label: t('order_product.count')
     => f.input :patina, label: t('order_product.patina')
     => f.input :comment, label: t('order_product.comment')

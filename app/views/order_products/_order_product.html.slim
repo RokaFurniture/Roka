@@ -1,15 +1,15 @@
 .row.valign.bottom-line id="order_product_#{order_product.id}"
-  .col-md-1
-    span= order_product.product.name
+  .col-md-3
+    span= "#{order_product.product.product_group.name} #{order_product.product.name}"
   .col-md-1
     span= order_product.color.name
   .col-md-2
     span= order_product.size.name
   .col-md-1
     span= order_product.count
-  .col-md-2
+  .col-md-1
     span= order_product.patina if order_product.patina
-  .col-md-2
+  .col-md-1
     span= order_product.comment if order_product.comment
   .col-md-3.text-right
     => edit_item_link(edit_order_product_path(order_product))

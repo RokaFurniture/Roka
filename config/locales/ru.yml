@@ -130,6 +130,7 @@ ru:
     show: 'Показати'
     add_materials: 'Додайте матеріали до списку'
     order: 'Замовлення'
+    worker: 'Кому видано'
   output_material:
     create: 'Додати матеріал'
   form:

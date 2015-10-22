@@ -5,4 +5,4 @@
     span= "#{ product_material.value.to_s << ' ' << product_material.material.unit }"
   .col-md-4.text-right
     => edit_item_link(edit_admin_product_material_path(product_material))
-    => delete_link(admin_product_material_path(product_material))
+    => delete_item_link(admin_product_material_path(product_material))

@@ -1,5 +1,5 @@
 class OrderProduct < ActiveRecord::Base
-  validates :order, :size, :color, :product, presence: true
+  validates :order, :color, :product, presence: true
 
   belongs_to :order
   belongs_to :product
