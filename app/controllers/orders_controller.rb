@@ -1,5 +1,5 @@
 class OrdersController < ApplicationController
-  before_action :set_order, only: [:edit, :update, :destroy]
+  before_action :set_order, only: [:edit, :show, :update, :destroy]
 
   def index
     @orders = Order.all
@@ -9,12 +9,16 @@ class OrdersController < ApplicationController
     @order = Order.new
   end
 
-  def edit
-  end
-
   def create
     @order = Order.new(order_params)
     render :new unless @order.save
+  end
+
+  def edit
+  end
+
+  def show
+    @order_products = OrderProduct.products(@order.id)
   end
 
   def update

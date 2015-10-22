@@ -3,6 +3,8 @@
   = simple_form_for @order, html: { class: 'form-horizontal' }, remote: true do |f|
     => f.input :number, label: t('order.number')
     => f.input :date, label: t('order.date')
+    => f.input :deadline, label: t('order.deadline')
     => f.association :customer, label: t('customer.title'), label_method: :name, include_blank: false
     => f.input :delivery_address, label: t('order.delivery_address')
+    => f.input :comment, as: :text, label: t('order.comment')
     => f.submit t('form.save'), class: 'btn btn-success'

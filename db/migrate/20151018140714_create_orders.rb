@@ -2,7 +2,7 @@ class CreateOrders < ActiveRecord::Migration
   def change
     create_table :orders do |t|
       t.string :number
-      t.string :delivery_address
+      t.string :delivery_adress
       t.references :customer, index: true, foreign_key: true
       t.date :date
 

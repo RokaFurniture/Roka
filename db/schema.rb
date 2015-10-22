@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151019175628) do
+ActiveRecord::Schema.define(version: 20151021202432) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -59,6 +59,21 @@ ActiveRecord::Schema.define(version: 20151019175628) do
     t.decimal  "count",      default: 0.0
   end
 
+  create_table "order_products", force: :cascade do |t|
+    t.integer "order_id"
+    t.integer "product_id"
+    t.integer "size_id"
+    t.integer "color_id"
+    t.integer "count",      default: 1
+    t.string  "patina"
+    t.string  "comment"
+  end
+
+  add_index "order_products", ["color_id"], name: "index_order_products_on_color_id", using: :btree
+  add_index "order_products", ["order_id"], name: "index_order_products_on_order_id", using: :btree
+  add_index "order_products", ["product_id"], name: "index_order_products_on_product_id", using: :btree
+  add_index "order_products", ["size_id"], name: "index_order_products_on_size_id", using: :btree
+
   create_table "orders", force: :cascade do |t|
     t.string   "number"
     t.string   "delivery_address"
@@ -66,6 +81,8 @@ ActiveRecord::Schema.define(version: 20151019175628) do
     t.date     "date"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
+    t.date     "deadline"
+    t.string   "comment"
   end
 
   add_index "orders", ["customer_id"], name: "index_orders_on_customer_id", using: :btree
@@ -149,6 +166,10 @@ ActiveRecord::Schema.define(version: 20151019175628) do
   add_foreign_key "input_materials", "inputs"
   add_foreign_key "input_materials", "materials"
   add_foreign_key "inputs", "providers"
+  add_foreign_key "order_products", "colors"
+  add_foreign_key "order_products", "orders"
+  add_foreign_key "order_products", "products"
+  add_foreign_key "order_products", "sizes"
   add_foreign_key "orders", "customers"
   add_foreign_key "output_materials", "materials"
   add_foreign_key "output_materials", "outputs"
