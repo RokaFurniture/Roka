@@ -6,5 +6,5 @@
   .col-md-4
     span.name-middle= provider.address
   .col-md-3.text-right
-    => link_to '', edit_operator_provider_path(provider), remote: true, class: 'btn btn-raised mdi-editor-border-color'
-    => link_to '', operator_provider_path(provider), title: t('form.destroy'), data: {:confirm => t('form.confirm') }, :method => :delete, remote: true, class: 'btn btn-raised mdi-content-clear'
+    => edit_item_link edit_operator_provider_path(provider)
+    => delete_item_link operator_provider_path(provider)

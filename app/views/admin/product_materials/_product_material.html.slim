@@ -4,5 +4,5 @@
   .col-md-2
     span= "#{ product_material.value.to_s << ' ' << product_material.material.unit }"
   .col-md-4.text-right
-    => link_to '', edit_admin_product_material_path(product_material), remote: true, class: 'btn btn-raised mdi-editor-border-color'
-    => link_to '', admin_product_material_path(product_material), data: {:confirm => t('form.confirm') }, :method => :delete, remote: true, class: 'btn btn-raised mdi-content-clear'
+    => edit_item_link(edit_admin_product_material_path(product_material))
+    => delete_link(admin_product_material_path(product_material))

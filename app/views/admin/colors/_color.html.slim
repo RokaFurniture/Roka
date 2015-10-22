@@ -3,5 +3,5 @@
     span #{color.name + ' (' + color.color.upcase + ')'}
   .col-md-5.show-color style="background-color: #{color.color}"
   .col-md-4.text-right
-    => link_to '', edit_admin_color_path(color), remote: true, class: 'btn btn-raised mdi-editor-border-color'
-    => link_to '', admin_color_path(color), data: {:confirm => t('form.confirm') }, :method => :delete, remote: true, class: 'btn btn-raised mdi-content-clear'
+    => edit_item_link(edit_admin_color_path(color))
+    => delete_item_link(admin_color_path(color))

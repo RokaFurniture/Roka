@@ -5,4 +5,4 @@ tr id="output_material_#{output_material.id}"
     = output_material.count
   td.col-md-4.text-right
     /* => link_to t('form.edit'), edit_admin_product_material_path(product_material), remote: true, class: 'btn btn-default' */
-    => link_to '', operator_output_material_path(output_material), data: {:confirm => t('form.confirm') }, :method => :delete, remote: true, class: 'btn btn-raised mdi-content-clear'
+    => delete_item_link operator_output_material_path(output_material)

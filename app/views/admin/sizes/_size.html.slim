@@ -4,5 +4,5 @@
   .col-md-4
     span= size.name
   .col-md-4.text-right
-    => link_to '', edit_admin_size_path(size), remote: true, class: 'btn btn-raised mdi-editor-border-color'
-    => link_to '', admin_size_path(size), data: {:confirm => t('form.confirm') }, :method => :delete, remote: true, class: 'btn btn-raised mdi-content-clear'
+    => edit_item_link edit_admin_size_path(size)
+    => delete_item_link admin_size_path(size)

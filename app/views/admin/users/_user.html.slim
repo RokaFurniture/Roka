@@ -6,4 +6,4 @@
   .col-md-3
     = user.email
   .col-md-4.text-right
-    => link_to '', admin_user_path(user), data: {:confirm => t('form.confirm') }, :method => :delete, remote: true, class: 'btn btn-raised mdi-content-clear'
+    => delete_item_link(admin_user_path(user))

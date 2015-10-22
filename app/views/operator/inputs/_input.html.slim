@@ -7,4 +7,4 @@
     span.name-middle= input.provider.name
   .col-md-5.text-right
     => link_to t('input.show'), operator_input_path(input), class: 'btn btn-raised'
-    => link_to '', operator_input_path(input), title: t('form.destroy'), data: {:confirm => t('form.confirm') }, :method => :delete, remote: true, class: 'btn btn-raised mdi-content-clear'
+    => delete_item_link operator_input_path(input)

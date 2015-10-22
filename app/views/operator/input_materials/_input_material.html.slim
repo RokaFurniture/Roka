@@ -7,4 +7,4 @@ tr id="input_material_#{input_material.id}"
     = input_material.price
   td.col-md.4.valign.text-right
     /* => link_to t('form.edit'), edit_admin_product_material_path(product_material), remote: true, class: 'btn btn-default' */
-    => link_to '', operator_input_material_path(input_material), data: {:confirm => t('form.confirm') }, :method => :delete, remote: true, class: 'btn btn-raised mdi-content-clear'
+    => delete_item_link operator_input_material_path(input_material)

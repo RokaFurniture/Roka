@@ -7,4 +7,4 @@
     span.name-middle= order.customer.name
   .col-md-4.text-right
     => link_to t('order.cart'), order_path(order), class: 'btn btn-raised btn-default'
-    => link_to '', order_path(order), data: {:confirm => t('form.confirm') }, :method => :delete, remote: true, class: 'btn btn-raised mdi-content-clear'
+    => delete_item_link order_path(order)

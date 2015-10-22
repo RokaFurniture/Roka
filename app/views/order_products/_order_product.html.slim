@@ -12,5 +12,5 @@
   .col-md-2
     span= order_product.comment if order_product.comment
   .col-md-3.text-right
-    => link_to '', edit_order_product_path(order_product), remote: true, class: 'btn btn-raised mdi-editor-border-color'
-    => link_to '', order_product_path(order_product), data: {:confirm => t('form.confirm') }, :method => :delete, remote: true, class: 'btn btn-raised mdi-content-clear'
+    => edit_item_link(edit_order_product_path(order_product))
+    => delete_item_link(order_product_path(order_product))

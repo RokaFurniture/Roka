@@ -2,5 +2,5 @@
   .col-md-8
     span= product_group.name
   .col-md-4.text-right
-    => link_to '', edit_admin_product_group_path(product_group), remote: true, class: 'btn btn-raised mdi-editor-border-color'
-    => link_to '', admin_product_group_path(product_group), data: {:confirm => t('form.confirm') }, :method => :delete, remote: true, class: 'btn btn-raised mdi-content-clear'
+    => edit_item_link(edit_admin_product_group_path(product_group))
+    => delete_item_link(admin_product_group_path(product_group))
