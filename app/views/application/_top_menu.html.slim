@@ -7,14 +7,14 @@
         li class=active_class(:orders) =link_to t('order.list'), orders_path
         - if current_user.admin?
           li class=active_class(:users) =link_to t('users'), admin_users_path
-        - if current_user.manager? || current_user.admin?
-          li class='dropdown'
-            = link_to '#', class: 'dropdown-toggle', data: { toggle: "dropdown", role: "button", haspopup: "true", expanded: "false" } do
-              = t('directory')
-              span.caret
-            ul.dropdown-menu
+        li class='dropdown'
+          = link_to '#', class: 'dropdown-toggle', data: { toggle: "dropdown", role: "button", haspopup: "true", expanded: "false" } do
+            = t('directory')
+            span.caret
+          ul.dropdown-menu
+            li class=active_class(:materials) =link_to t('materials'), admin_materials_path
+            - if current_user.manager? || current_user.admin?
               li class=active_class(:colors) =link_to t('colors'), admin_colors_path
-              li class=active_class(:materials) =link_to t('materials'), admin_materials_path
               li class=active_class(:product_groups) =link_to t('product_groups'), admin_product_groups_path
               li class=active_class(:products) =link_to t('products'), admin_products_path
               li class=active_class(:sizes) =link_to t('sizes'), admin_sizes_path
