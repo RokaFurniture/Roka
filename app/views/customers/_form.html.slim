@@ -4,4 +4,5 @@
     => f.input :name, label: t('customer.name')
     => f.input :phone, label: t('customer.phone')
     => f.input :address, label: t('customer.address')
+    => f.input :type, as: :select, collection: [t('customer.type.wholesale'), t('customer.type.retail')]
     => f.submit t('form.save'), class: 'btn btn-success'

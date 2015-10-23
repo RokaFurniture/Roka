@@ -27,6 +27,10 @@ ru:
     name: "Ім'я"
     phone: 'Телефон'
     address: 'Адреса'
+    type:
+      title: 'Тип'
+      wholesale: 'оптовий'
+      retail: 'роздрібний'
   user:
     list: 'Керівництво'
     new: 'Новий користувач'
