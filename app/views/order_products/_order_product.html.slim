@@ -2,7 +2,7 @@
   .col-md-3
     span= "#{order_product.product.product_group.name} #{order_product.product.name}"
   .col-md-1
-    span= order_product.color.name
+    span= order_product.color.name unless order_product.color.nil?
   .col-md-2
     span= order_product.size.name unless order_product.size.nil?
   .col-md-1
