@@ -11,7 +11,7 @@ class Product < ActiveRecord::Base
 
   mount_uploader :image, ImageUploader
 
-  def name_long
-    [product_group.name, name, size.name, color.name].join(' - ')
+  def full_name
+    [product_group.name, name].join(' - ')
   end
 end

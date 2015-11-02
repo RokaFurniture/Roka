@@ -11,4 +11,8 @@ module ApplicationHelper
   def edit_item_link(path, style = 'btn btn-raised mdi-editor-border-color')
     link_to '', path, remote: true, class: style
   end
+
+  def order_status(status = 'init')
+    t("order.status.#{status}")
+  end
 end

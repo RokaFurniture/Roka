@@ -14,6 +14,15 @@ ru:
     delivery_address: 'Адреса для доставки'
     create: 'Створити замовлення'
     cart: 'Карта замовлення'
+    status:
+      init: 'Нове'
+      joinery: 'Столярка'
+      grinding: 'Шліфовка'
+      painting: 'Малярка'
+      assembly: 'Збірка'
+      completed: 'Виготовлено'
+      in_delivery: 'Доставляється'
+      finished: 'Виконано'
   order_product:
     list: 'Список замовлених товарів'
     create: 'Додати товар'
@@ -27,7 +36,7 @@ ru:
     name: "Ім'я"
     phone: 'Телефон'
     address: 'Адреса'
-    type:
+    price_type:
       title: 'Тип'
       wholesale: 'оптовий'
       retail: 'роздрібний'
@@ -165,4 +174,7 @@ ru:
   products: 'Товари'
   product_groups: 'Групи товарів'
   menu: 'Меню'
-
+  # simple_form:
+    # include_blanks:
+      # order_product:
+        # size: 'Без розміру'
