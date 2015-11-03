@@ -1,0 +1,9 @@
+.new_price
+  h3= t('price.title')
+  = simple_form_for @price, html: { class: 'form-horizontal' }, remote: true do |f|
+    => f.association :product, collection: Product.all.order(:product_group_id), label_method: :full_name, include_blank: false, label: t('price.name')
+    => f.input :value, label: t('price.value')
+    => f.input :white, label: t('price.white')
+    => f.input :sides, label: t('price.sides')
+    => f.input :retail, label: t('price.retail')
+    => f.submit t('form.save'), class: 'btn btn-success'

@@ -6,6 +6,7 @@ Rails.application.routes.draw do
   get 'login', to: 'sessions#new'
   resources :orders, :customers
   resources :order_products
+  resources :prices
 
   namespace :admin do
     root to: '/admin#index'

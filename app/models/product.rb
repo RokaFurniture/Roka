@@ -11,7 +11,13 @@ class Product < ActiveRecord::Base
 
   mount_uploader :image, ImageUploader
 
-  def full_name
+  def name_with_group
     [product_group.name, name].join(' - ')
+  end
+
+  def full_name
+    full_name = [product_group.name, name]
+    full_name.push size.name if size
+    full_name.join(' - ')
   end
 end

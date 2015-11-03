@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151023202248) do
+ActiveRecord::Schema.define(version: 20151103133028) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -84,6 +84,7 @@ ActiveRecord::Schema.define(version: 20151023202248) do
     t.datetime "updated_at",       null: false
     t.date     "deadline"
     t.string   "comment"
+    t.integer  "status"
   end
 
   add_index "orders", ["customer_id"], name: "index_orders_on_customer_id", using: :btree
@@ -105,6 +106,16 @@ ActiveRecord::Schema.define(version: 20151023202248) do
   end
 
   add_index "outputs", ["worker_id"], name: "index_outputs_on_worker_id", using: :btree
+
+  create_table "prices", force: :cascade do |t|
+    t.integer "product_id"
+    t.decimal "value"
+    t.decimal "white"
+    t.decimal "sides"
+    t.decimal "retail"
+  end
+
+  add_index "prices", ["product_id"], name: "index_prices_on_product_id", using: :btree
 
   create_table "product_groups", force: :cascade do |t|
     t.string "name"
@@ -173,6 +184,7 @@ ActiveRecord::Schema.define(version: 20151023202248) do
   add_foreign_key "output_materials", "materials"
   add_foreign_key "output_materials", "outputs"
   add_foreign_key "outputs", "workers"
+  add_foreign_key "prices", "products"
   add_foreign_key "product_materials", "materials"
   add_foreign_key "product_materials", "products"
   add_foreign_key "products", "sizes"

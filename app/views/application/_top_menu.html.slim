@@ -5,6 +5,7 @@
 
       ul.nav.navbar-nav
         li class=active_class(:orders) =link_to t('order.list'), orders_path
+        li class=active_class(:prices) =link_to t('price.list'), prices_path
         - if current_user.admin?
           li class=active_class(:users) =link_to t('users'), admin_users_path
         li class='dropdown'

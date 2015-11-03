@@ -1,0 +1,21 @@
+=> link_to t('price.create'), new_price_path, remote: true, class: 'btn btn-success btn-raised'
+
+.panel.panel-primary
+  .panel-heading
+    h2.panel-title
+      = t('price.title')
+  .panel-body#prices
+    .row
+      .col-md-4
+        span= t('price.name')
+      .col-md-1
+        span= t('price.value')
+      .col-md-1
+        span= t('price.white')
+      .col-md-1
+        span= t('price.sides')
+      .col-md-1
+        span= t('price.retail')
+      .col-md-4
+
+    = render @prices

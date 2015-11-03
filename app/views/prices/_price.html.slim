@@ -1,0 +1,14 @@
+.bottom-line id="price_#{price.id}"
+  .col-md-4
+    span= price.product.full_name
+  .col-md-1.text-right
+    span= price.value
+  .col-md-1.text-right
+    span= price.white
+  .col-md-1.text-right
+    span= price.sides
+  .col-md-1.text-right
+    span= price.retail
+  .col-md-4.text-right
+    => edit_item_link edit_price_path(price)
+    => delete_item_link price_path(price)
