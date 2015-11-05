@@ -6,5 +6,6 @@ class Order < ActiveRecord::Base
   has_many :products, through: :order_products
   has_many :order_products, dependent: :destroy
 
-  enum status: [:in_process, :in_delivery, :completed, :archived]
+  enum status: [:init, :joinery, :grinding, :painting, :assembly, :completed,
+                :in_delivery, :finished]
 end

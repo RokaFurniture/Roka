@@ -1,6 +1,7 @@
 .new_order
   h3= t('order.title')
   = simple_form_for @order, html: { class: 'form-horizontal' }, remote: true do |f|
+    => f.input :status, collection: Order.statuses.keys.map{ |x| t("order.status.#{x}") }.zip(Order.statuses.keys), label: t('order.status.title'), selected: '0'
     => f.input :number, label: t('order.number')
     => f.input :date, label: t('order.date')
     => f.input :deadline, label: t('order.deadline')

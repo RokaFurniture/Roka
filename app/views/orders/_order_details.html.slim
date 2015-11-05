@@ -6,6 +6,7 @@
       p= "#{t('customer.title')}: #{@order.customer.name}"
       p= "#{t('order.date')}: #{@order.date}"
       p= "#{t('order.deadline')}: #{@order.deadline}"
+      p= "#{t('order.status.title')}: " << t("order.status.#{@order.status}")
       p= "#{t('order.delivery_address')}: #{@order.delivery_address}" unless @order.delivery_address.blank?
       p= "#{t('order.comment')}: #{@order.comment}" unless @order.comment.blank?
     .col-md-2
