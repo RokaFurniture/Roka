@@ -1,8 +1,10 @@
 .row.valign.bottom-line id="order_#{order.id}"
-  .col-md-4
-    p= order.number << " #{ t('date.from') } " << order.date.to_s << ', ' << t("order.status.#{order.status}")
+  .col-md-3
+    p= t('order.num') << ': ' << order.number
+    p= order.date.to_s
     p= order.customer.name
-  .col-md-4
+    p= t('order.status.title') << ': ' << t("order.status.#{order.status}")
+  .col-md-5
     - order.products.each do |p|
       p= p.full_name
   .col-md-4.text-right

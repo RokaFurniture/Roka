@@ -16,8 +16,7 @@ class Product < ActiveRecord::Base
   end
 
   def full_name
-    full_name = [product_group.name, name]
-    full_name.push size.name if size
-    full_name.join(' - ')
+    full_name = product_group.name << ' ' << name
+    full_name << ', ' << size.name if size
   end
 end
