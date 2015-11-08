@@ -4,6 +4,7 @@ class CreateOutputs < ActiveRecord::Migration
       t.string :num
       t.date :date
       t.string :order
+      t.belongs_to :worker, index: true
     end
   end
 end

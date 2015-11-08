@@ -3,7 +3,7 @@ class CreateProvider < ActiveRecord::Migration
     create_table :providers do |t|
       t.string :name
       t.string :phone
-      t.string :adress
+      t.string :address
     end
   end
 end
