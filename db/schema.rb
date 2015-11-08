@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151105165342) do
+ActiveRecord::Schema.define(version: 20151103133028) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,9 +27,9 @@ ActiveRecord::Schema.define(version: 20151105165342) do
     t.string   "name"
     t.string   "phone"
     t.string   "address"
+    t.integer  "price_type", default: 0
     t.datetime "created_at",             null: false
     t.datetime "updated_at",             null: false
-    t.integer  "price_type", default: 0
   end
 
   create_table "input_materials", force: :cascade do |t|
@@ -53,11 +53,11 @@ ActiveRecord::Schema.define(version: 20151105165342) do
   create_table "materials", force: :cascade do |t|
     t.string   "name"
     t.string   "option"
-    t.datetime "created_at",               null: false
-    t.datetime "updated_at",               null: false
     t.string   "unit"
     t.decimal  "price",      default: 0.0
     t.decimal  "count",      default: 0.0
+    t.datetime "created_at",               null: false
+    t.datetime "updated_at",               null: false
   end
 
   create_table "order_products", force: :cascade do |t|
@@ -77,14 +77,14 @@ ActiveRecord::Schema.define(version: 20151105165342) do
 
   create_table "orders", force: :cascade do |t|
     t.string   "number"
-    t.string   "delivery_address"
+    t.string   "delivery_adress"
     t.integer  "customer_id"
     t.date     "date"
-    t.datetime "created_at",                   null: false
-    t.datetime "updated_at",                   null: false
     t.date     "deadline"
     t.string   "comment"
-    t.integer  "status",           default: 0
+    t.integer  "status",          default: 0
+    t.datetime "created_at",                  null: false
+    t.datetime "updated_at",                  null: false
   end
 
   add_index "orders", ["customer_id"], name: "index_orders_on_customer_id", using: :btree
@@ -136,11 +136,13 @@ ActiveRecord::Schema.define(version: 20151105165342) do
   create_table "products", force: :cascade do |t|
     t.string  "name"
     t.string  "description"
-    t.integer "product_group_id"
     t.string  "image"
+    t.integer "product_group_id"
     t.integer "size_id"
+    t.integer "color_id"
   end
 
+  add_index "products", ["color_id"], name: "index_products_on_color_id", using: :btree
   add_index "products", ["product_group_id"], name: "index_products_on_product_group_id", using: :btree
   add_index "products", ["size_id"], name: "index_products_on_size_id", using: :btree
 
@@ -154,9 +156,9 @@ ActiveRecord::Schema.define(version: 20151105165342) do
     t.integer  "height"
     t.integer  "length"
     t.integer  "width"
+    t.integer  "product_group_id"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
-    t.integer  "product_group_id"
   end
 
   add_index "sizes", ["product_group_id"], name: "index_sizes_on_product_group_id", using: :btree
@@ -183,10 +185,7 @@ ActiveRecord::Schema.define(version: 20151105165342) do
   add_foreign_key "orders", "customers"
   add_foreign_key "output_materials", "materials"
   add_foreign_key "output_materials", "outputs"
-  add_foreign_key "outputs", "workers"
   add_foreign_key "prices", "products"
   add_foreign_key "product_materials", "materials"
   add_foreign_key "product_materials", "products"
-  add_foreign_key "products", "sizes"
-  add_foreign_key "sizes", "product_groups"
 end

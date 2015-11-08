@@ -4,7 +4,7 @@ class CreateProductMaterials < ActiveRecord::Migration
       t.references :product, index: true, foreign_key: true
       t.references :material, index: true, foreign_key: true
       t.integer :level, default: 0
-      t.integer :value, default: 0
+      t.decimal :value, default: 0
 
       t.timestamps null: false
     end

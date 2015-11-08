@@ -4,6 +4,7 @@ class CreateCustomers < ActiveRecord::Migration
       t.string :name
       t.string :phone
       t.string :address
+      t.integer :price_type, default: 0
 
       t.timestamps null: false
     end

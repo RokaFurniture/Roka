@@ -4,6 +4,7 @@ class CreateSizes < ActiveRecord::Migration
       t.integer :height
       t.integer :length
       t.integer :width
+      t.belongs_to :product_group, index: true
 
       t.timestamps null: false
     end

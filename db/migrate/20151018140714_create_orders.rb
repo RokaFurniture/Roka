@@ -5,6 +5,9 @@ class CreateOrders < ActiveRecord::Migration
       t.string :delivery_adress
       t.references :customer, index: true, foreign_key: true
       t.date :date
+      t.date :deadline
+      t.string :comment
+      t.integer :status, default: 0
 
       t.timestamps null: false
     end
