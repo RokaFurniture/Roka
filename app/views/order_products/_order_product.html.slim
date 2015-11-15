@@ -1,6 +1,6 @@
 .row.valign.bottom-line id="order_product_#{order_product.id}"
   .col-md-3
-    span= "#{order_product.product.product_group.name} #{order_product.product.name}"
+    span= order_product.product.full_name
   .col-md-1
     span= order_product.color.name unless order_product.color.nil?
   .col-md-2

@@ -18,5 +18,6 @@ class Product < ActiveRecord::Base
   def full_name
     full_name = product_group.name << ' ' << name
     full_name << ', ' << size.name if size
+    full_name
   end
 end
