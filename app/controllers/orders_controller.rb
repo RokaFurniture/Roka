@@ -18,7 +18,8 @@ class OrdersController < ApplicationController
   end
 
   def show
-    @order_products = OrderProduct.products(@order.id)
+    @order_product = OrderProduct.new(order_id: params[:id])
+    @product_groups = ProductGroup.all
   end
 
   def update

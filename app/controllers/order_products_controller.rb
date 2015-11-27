@@ -6,7 +6,13 @@ class OrderProductsController < ApplicationController
   end
 
   def create
-    @order_product = OrderProduct.new(order_params)
+    @product = Product.find_or_create_by(name: params[:order_product][:product],
+                                         size_id: params[:order_product][:size_id],
+                                         product_group_id: params[:product_group])
+    @product.save if @product.new_record?
+    order_product_params.extract!(:product)
+    @order_product = OrderProduct.new(order_product_params)
+    @order_product.product = @product
     render(:new) && return unless @order_product.save
   end
 
@@ -29,7 +35,7 @@ class OrderProductsController < ApplicationController
     @order_product = OrderProduct.find(params[:id])
   end
 
-  def order_params
+  def order_product_params
     params.require(:order_product).permit!
   end
 end

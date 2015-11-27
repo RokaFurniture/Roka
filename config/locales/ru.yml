@@ -102,6 +102,11 @@ ru:
     w: '(ш)'
     h: '(в)'
     unit: 'мм'
+    role:
+      title: 'Тип'
+      standard: 'Стандартний'
+      non_standard: 'Не стандартний'
+    non_standard_button: 'Новий не стандартний розмір'
   product_group:
     create: 'Додати нову групу товарів'
     title: 'Група товарів'

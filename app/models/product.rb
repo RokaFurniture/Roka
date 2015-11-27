@@ -20,4 +20,6 @@ class Product < ActiveRecord::Base
     full_name << ', ' << size.name if size
     full_name
   end
+
+  scope :for_group, -> (group) { where('product_group_id = ?', group) }
 end

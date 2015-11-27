@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20151103133028) do
+ActiveRecord::Schema.define(version: 20151120120635) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -68,6 +68,7 @@ ActiveRecord::Schema.define(version: 20151103133028) do
     t.integer "count",      default: 1
     t.string  "patina"
     t.string  "comment"
+    t.decimal "price"
   end
 
   add_index "order_products", ["color_id"], name: "index_order_products_on_color_id", using: :btree
@@ -85,6 +86,8 @@ ActiveRecord::Schema.define(version: 20151103133028) do
     t.integer  "status",           default: 0
     t.datetime "created_at",                   null: false
     t.datetime "updated_at",                   null: false
+    t.decimal  "sum"
+    t.decimal  "discount"
   end
 
   add_index "orders", ["customer_id"], name: "index_orders_on_customer_id", using: :btree
@@ -159,6 +162,7 @@ ActiveRecord::Schema.define(version: 20151103133028) do
     t.integer  "product_group_id"
     t.datetime "created_at",       null: false
     t.datetime "updated_at",       null: false
+    t.integer  "role"
   end
 
   add_index "sizes", ["product_group_id"], name: "index_sizes_on_product_group_id", using: :btree
