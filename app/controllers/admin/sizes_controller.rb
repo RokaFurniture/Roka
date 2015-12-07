@@ -3,17 +3,17 @@ class Admin::SizesController < ApplicationController
 
   def index
     @sizes = Size.all.order(:product_group_id)
-    @size = Size.new
   end
 
   def new
-    @size = Size.new
+    @size = Size.new(role: params[:role] || 0)
   end
 
   def edit
   end
 
   def create
+    # require 'pry'; binding.pry
     @size = Size.new(size_params)
     render :new unless @size.save
   end

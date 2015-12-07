@@ -1,12 +1,11 @@
-.row.valign.bottom-line id="order_#{order.id}"
-  .col-md-3
+.row.valign-wrapper.bottom-line id="order_#{order.id}"
+  .col.s3
     p= t('order.num') << ': ' << order.number
     p= order.date.to_s
     p= order.customer.name
     p= t('order.status.title') << ': ' << t("order.status.#{order.status}")
-  .col-md-5
+  .col.s5
     - order.products.each do |p|
       p= p.full_name
-  .col-md-4.text-right
-    => link_to t('order.cart'), order_path(order), class: 'btn btn-raised btn-default'
-    => delete_item_link order_path(order)
+  .col.s4.text-right
+    => link_to t('order.cart'), order_path(order), class: 'btn waves-effect waves-light'

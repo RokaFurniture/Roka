@@ -1,9 +1,7 @@
 @import 'jquery-ui';
 @import 'jquery.minicolors';
 @import 'lazybox';
-@import 'material';
-@import 'bootstrap';
-@import 'bootstrap-material-design';
+@import "materialize";
 
 .translation_missing {
   background-color: black;
@@ -20,6 +18,13 @@ body {
   margin: 0 auto;
 }
 
+a.dropdown-dir { width: 160px; }
+a.dropdown-stor { width: 150px; }
+
+span.userpost { width: 100px; }
+span.username { width: 100px; }
+span.usermail { width: 200px; }
+
 // separator between items in list
 .bottom-line { border-bottom: 1px solid #D3D3D3; }
 
@@ -27,15 +32,17 @@ body {
 
 .text-left { text-align: left; }
 
-.bold {
-  font-weight: bold;
-}
+.bold { font-weight: bold; }
 
 .btn-big {
   width: 400px;
   height: 50px;
   margin: 10px;
   padding: auto 0;
+}
+
+.form-padding {
+  padding: 20px;
 }
 
 .pd { margin-bottom: 10px; }

@@ -1,13 +1,19 @@
 //= require jquery
+//= require jquery.turbolinks
 //= require jquery_ujs
-//= require turbolinks
 //= require jquery-ui/effect-highlight
-//= require jquery-ui/datepicker
-//= require jquery-ui/datepicker-uk
-//= require bootstrap
-//= require bootstrap-material-design
-//= require lazybox
-//= require material
 //= require jquery.minicolors
 //= require jquery.minicolors.simple_form
+//= require materialize-sprockets
+//= require turbolinks
+//= require lazybox
 //= require_tree .
+
+var ready;
+ready = function() {
+  $('select').material_select();
+  $('.datepicker').pickadate();
+};
+
+$(document).ready(ready);
+$(document).on('page:load', ready);

@@ -1,8 +1,10 @@
 .new_size
   h3= t('size.title')
   = simple_form_for [:admin, @size], html: { class: 'form-horizontal' }, remote: true do |f|
-    => f.association :product_group, include_blank: false, label: t('product_group.title')
-    => f.input :length, label: t('size.length'), placeholder: t('size.unit')
-    => f.input :width, label: t('size.width'), placeholder: t('size.unit')
-    => f.input :height, label: t('size.height'), placeholder: t('size.unit')
-    => f.submit t('form.save'), class: 'btn btn-success'
+    => f.association :product_group, include_blank: false, selected: params[:product_group], label: t('product_group.title')
+    => f.input :role, as: :radio_buttons, collection: Size.roles.keys.map{ |x| t("size.role.#{x}") }.zip(Size.roles.keys), label: t('size.role.title'), label_html: { class: 'active' }
+    br
+    => f.input :length, label: t('size.length'), placeholder: t('size.unit'), label_html: { class: 'active' }
+    => f.input :width, label: t('size.width'), placeholder: t('size.unit'), label_html: { class: 'active' }
+    => f.input :height, label: t('size.height'), placeholder: t('size.unit'), label_html: { class: 'active' }
+    => f.submit t('form.save'), class: 'btn waves-effect waves-light'

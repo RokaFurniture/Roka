@@ -1,9 +1,7 @@
-.user.valign.bottom-line.row id="user_#{user.id}"
-  .col-md-2
-    = t("user.#{user.post}")
-  .col-md-3
-    = user.name
-  .col-md-3
-    = user.email
-  .col-md-4.text-right
-    => delete_item_link(admin_user_path(user))
+.row id="user_#{user.id}"
+  .col.m3= t("user.#{user.post}")
+  .col.m3= user.name
+  .col.m3= user.email
+  .col.m3
+    = edit_item_link(edit_admin_user_path(user))
+    = delete_item_link(admin_user_path(user))

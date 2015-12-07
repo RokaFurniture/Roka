@@ -1,9 +1,11 @@
-=> link_to t('order.create'), new_order_path, remote: true, class: 'btn btn-success btn-raised'
-=> link_to t('customer.create'), new_customer_path, remote: true, class: 'btn btn-info btn-raised'
-
-.panel.panel-primary
-  .panel-heading
-    h2.panel-title
-      = t('order.list')
-  .panel-body#orders
-    = render @orders
+br
+ul.collapsible
+  li
+    .collapsible-header
+      i.material-icons create
+      = t('order.create')
+    .collapsible-body.form-padding
+      = render 'form'
+br
+#orders
+  = render @orders

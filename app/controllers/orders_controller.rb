@@ -2,7 +2,8 @@ class OrdersController < ApplicationController
   before_action :set_order, only: [:edit, :show, :update, :destroy]
 
   def index
-    @orders = Order.all
+    @orders = Order.includes(:order_products)
+    @order = Order.new
   end
 
   def new
@@ -18,7 +19,8 @@ class OrdersController < ApplicationController
   end
 
   def show
-    @order_products = OrderProduct.products(@order.id)
+    @order_product = OrderProduct.new(order_id: params[:id])
+    @product_groups = ProductGroup.all
   end
 
   def update

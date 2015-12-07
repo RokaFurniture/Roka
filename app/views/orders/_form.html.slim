@@ -1,11 +1,13 @@
-.new_order
-  h3= t('order.title')
-  = simple_form_for @order, html: { class: 'form-horizontal' }, remote: true do |f|
-    => f.input :status, collection: Order.statuses.keys.map{ |x| t("order.status.#{x}") }.zip(Order.statuses.keys), label: t('order.status.title'), selected: '0'
-    => f.input :number, label: t('order.number')
-    => f.input :date, label: t('order.date')
-    => f.input :deadline, label: t('order.deadline')
-    => f.association :customer, label: t('customer.title'), label_method: :name, include_blank: false
-    => f.input :delivery_address, label: t('order.delivery_address')
-    => f.input :comment, as: :text, label: t('order.comment')
-    => f.submit t('form.save'), class: 'btn btn-success'
+= simple_form_for @order, html: { class: 'form-horizontal' }, remote: true do |f|
+  .row
+    .col.m6 => f.input :status, collection: Order.statuses.keys.map{ |x| t("order.status.#{x}") }.zip(Order.statuses.keys), label: t('order.status.title'), selected: '0'
+    .col.m6 => f.input :number, label: t('order.number')
+  .row.valign-wrapper
+    .col.m8 => f.association :customer, label: t('customer.title'), label_method: :name, include_blank: false
+    .col.m4 => link_to t('customer.create'), new_customer_path, remote: true, class: 'btn waves-effect waves-light'
+  .row
+    .col.m6 => f.input :date, as: :string, label: t('order.date'), input_html: { class: 'datepicker' }
+    .col.m6 => f.input :deadline, as: :string, label: t('order.deadline'), input_html: { class: 'datepicker' }
+  => f.input :delivery_address, label: t('order.delivery_address')
+  => f.input :comment, label: t('order.comment')
+  => f.submit t('form.save'), class: 'btn waves-effect waves-light'
