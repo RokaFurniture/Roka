@@ -1,2 +1,2 @@
-$('#lazy_overlay').removeClass('active')
-$("<%= j(render @order) %>").appendTo("#orders").effect('highlight', {}, 1000)
+$("#orders").prepend("<%= j(render @order) %>")
+$("#order_<%= @order.id %>").effect('highlight', {}, 1000)

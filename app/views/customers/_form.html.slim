@@ -1,8 +1,9 @@
 .new_customer
   h3= t('customer.title')
-  = simple_form_for @customer, html: { class: 'form-horizontal' }, remote: true do |f|
+  = simple_form_for @customer, remote: true do |f|
     => f.input :name, label: t('customer.name')
     => f.input :phone, label: t('customer.phone')
     => f.input :address, label: t('customer.address')
-    => f.input :price_type, collection: Customer.price_types.keys.map{ |x| t("customer.price_type.#{x}") }.zip(Customer.price_types.keys), include_blank: false, label: t('customer.price_type.title')
-    => f.submit t('form.save'), class: 'btn btn-success'
+    => f.input :price_type, as: :radio_buttons, collection: Customer.price_types.keys.map{ |x| t("customer.price_type.#{x}") }.zip(Customer.price_types.keys), include_blank: false, label: false
+    br
+    => f.submit t('form.save'), class: 'btn waves-effect waves-light'

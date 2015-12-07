@@ -1,13 +1,13 @@
-.order_details.order
-  .row.pd
-    .col-md-5
-      h3= t('order.cart')
-      p= "#{t('order.number')}: #{@order.number}"
-      p= "#{t('customer.title')}: #{@order.customer.name}"
-      p= "#{t('order.date')}: #{@order.date}"
-      p= "#{t('order.deadline')}: #{@order.deadline}"
-      p= "#{t('order.status.title')}: " << t("order.status.#{@order.status}")
-      p= "#{t('order.delivery_address')}: #{@order.delivery_address}" unless @order.delivery_address.blank?
-      p= "#{t('order.comment')}: #{@order.comment}" unless @order.comment.blank?
-    .col-md-2
-      = link_to t('form.edit'), edit_order_path(@order.id), remote: true, class: 'btn btn-info'
+.order_details.order.row
+  .col.m6
+    h3= t('order.cart')
+    => link_to t('form.edit'), edit_order_path(@order.id), remote: true, class: 'btn waves-effect waves-light'
+    => link_to t('form.destroy'), order_path(@order.id), method: :delete, data: { confirm: t('form.confirm') }, remote: true, class: 'btn waves-effect waves-light'
+  .col.m6
+    p= "#{t('order.number')}: #{@order.number}"
+    p= "#{t('customer.title')}: #{@order.customer.name}"
+    p= "#{t('order.date')}: #{@order.date}"
+    p= "#{t('order.deadline')}: #{@order.deadline}"
+    p= "#{t('order.status.title')}: " << t("order.status.#{@order.status}")
+    p= "#{t('order.delivery_address')}: #{@order.delivery_address}" unless @order.delivery_address.blank?
+    p= "#{t('order.comment')}: #{@order.comment}" unless @order.comment.blank?

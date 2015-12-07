@@ -1,12 +1,9 @@
-.row.valign.bottom-line id="order_product_#{order_product.id}"
-  .col-md-4
-    span= order_product.count.to_s << ' x ' << order_product.product.full_name
-  .col-md-1
-    span= order_product.color.name unless order_product.color.nil?
-  .col-md-2
-    span= t('order_product.patina') << ': ' << order_product.patina unless order_product.patina.blank?
-  .col-md-2
-    span= order_product.comment if order_product.comment
-  .col-md-3.text-right
+.row.bottom-line id="order_product_#{order_product.id}"
+  .col.m8
+    p= order_product.count.to_s << ' x ' << order_product.product.full_name
+    p= t('order_product.color') << ': ' << order_product.color.name unless order_product.color.nil?
+    p= t('order_product.patina') << ': ' << order_product.patina unless order_product.patina.blank?
+    p= order_product.comment if order_product.comment
+  .col.m4.text-right
     => edit_item_link(edit_order_product_path(order_product))
     => delete_item_link(order_product_path(order_product))

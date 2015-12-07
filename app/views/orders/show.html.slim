@@ -1,20 +1,15 @@
 = render 'order_details'
 
-.panel.panel-primary
-  .panel-heading
-    h2.panel-title
-      = t('order_product.list')
-  .panel-body#order_products
-    = render partial: 'order_products/order_product', collection: @order.order_products
+#order_products
+  = render partial: 'order_products/order_product', collection: @order.order_products
 
-.panel.panel-primary
-  .panel-heading
-    h2.panel-title
-      =t('order_product.create')
-  .panel-body.row
-    .col-md-4
-      ul.nav.nav-pills.nav-stacked
+ul.collapsible
+  li
+    .collapsible-header
+      i.material-icons create
+      = t('order_product.create')
+    .collapsible-body.form-padding.row
+      .col.m4.collection
         - @product_groups.each do |g|
-          li role='presentation'
-            = link_to g.name, new_order_product_path(order_id: @order.id, product_group: g.id), remote: true
-    .col-md-8#order_product_form
+          = link_to g.name, new_order_product_path(order_id: @order.id, product_group: g.id), remote: true, class: 'collection-item'
+      .col.m8#order_product_form

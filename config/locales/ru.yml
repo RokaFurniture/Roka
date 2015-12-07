@@ -30,6 +30,7 @@ ru:
     create: 'Додати товар'
     count: 'Кількість'
     patina: 'Патіна'
+    color: 'Колір'
     comment: 'Коментар до товару'
   customer:
     create: 'Додати клієнта'
