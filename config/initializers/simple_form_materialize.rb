@@ -34,5 +34,4 @@ SimpleForm.setup do |config|
     b.use :error, wrap_with: { tag: 'span', class: 'error-block' }
     b.use :hint,  wrap_with: { tag: 'span', class: 'help-block' }
   end
-
 end

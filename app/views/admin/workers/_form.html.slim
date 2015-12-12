@@ -1,6 +1,3 @@
-.lazy_form
-  h2 = t("worker.new")
-  = simple_form_for [:admin, @worker], remote: true, html: { class: 'form-horizontal' } do |f|
-    => f.input :name, label: t('worker.name')
-    => f.submit t('form.save'), class: 'btn btn-success'
-    => link_to t('form.cansel'), admin_users_path, class: 'btn btn-default'
+= simple_form_for [:admin, @worker], remote: true do |f|
+  => f.input :name, label: t('worker.name')
+  => f.submit t('form.save'), class: 'btn wavew-effect waves-light'

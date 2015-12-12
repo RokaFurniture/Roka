@@ -1,6 +1,5 @@
-.row.valign.bottom-line id="product_group_#{product_group.id}"
-  .col-md-8
-    span= product_group.name
-  .col-md-4.text-right
-    => edit_item_link(edit_admin_product_group_path(product_group))
-    => delete_item_link(admin_product_group_path(product_group))
+li.collection-item id="product_group_#{product_group.id}"
+  .col-item
+    = product_group.name
+    => delete_item_link(admin_product_group_path(product_group), 'secondary-content')
+    => edit_item_link(edit_admin_product_group_path(product_group), 'secondary-content')

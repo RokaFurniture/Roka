@@ -8,9 +8,14 @@ html
     = csrf_meta_tags
 
   body
-    = render 'application/top_menu' if current_user
-    .container
-      = yield
-    .footer
+    header
+      = render 'application/navbar' if current_user
+    main
+      .row
+        .col.s12.m3.l2
+          = render 'menu' if current_user
+        .col.s12.m9.l10
+          = yield
+    footer
       = render_lazybox
 

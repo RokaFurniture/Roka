@@ -1,10 +1,15 @@
-.row.valign.bottom-line id="customer_#{customer.id}"
-  .col-md-3
-    span= customer.name
-  .col-md-3
-    span.name-middle= customer.phone
-  .col-md-3
-    span.name-middle= customer.address
-  .col-md-3.text-right
-    => edit_item_link edit_customer_path(customer)
-    => delete_item_link customer_path(customer)
+li id="customer_#{customer.id}"
+  .collapsible-header
+    = customer.name
+  .collapsible-body
+    .row
+      .col.m3
+        p= customer.phone
+      .col.m3
+        p= customer.address
+      .col.m3
+        p= link_to t('customer.orders'), customer_path(customer), class: 'btn waves-effect waves-light'
+      .col.m3.right-align
+        p
+          => edit_item_link edit_customer_path(customer)
+          => delete_item_link customer_path(customer)

@@ -3,10 +3,10 @@ class PricesController < ApplicationController
 
   def index
     @prices = Price.all
+    @price = Price.new
   end
 
   def new
-    @price = Price.new
   end
 
   def edit

@@ -1,11 +1,11 @@
-.row.valign-wrapper.bottom-line id="order_#{order.id}"
-  .col.s3
-    p= t('order.num') << ': ' << order.number
-    p= order.date.to_s
-    p= order.customer.name
-    p= t('order.status.title') << ': ' << t("order.status.#{order.status}")
-  .col.s5
-    - order.products.each do |p|
-      p= p.full_name
-  .col.s4.text-right
-    => link_to t('order.cart'), order_path(order), class: 'btn waves-effect waves-light'
+.card-panel.teal.lighten-5.list-item
+  = link_to order_path(order), class: 'list_item_link' do
+    span.info
+      span= t('order.num') << ': ' << order.number
+      span= order.date.to_formatted_s(:ukr)
+      span= order.customer.name
+      span= order_status(order.status)
+    span.products
+      - order.products.each do |p|
+        span= p.full_name
+

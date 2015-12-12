@@ -1,4 +1,4 @@
-= simple_form_for @order, html: { class: 'form-horizontal' }, remote: true do |f|
+= simple_form_for @order, remote: true do |f|
   .row
     .col.m6 => f.input :status, collection: Order.statuses.keys.map{ |x| t("order.status.#{x}") }.zip(Order.statuses.keys), label: t('order.status.title'), selected: '0'
     .col.m6 => f.input :number, label: t('order.number')

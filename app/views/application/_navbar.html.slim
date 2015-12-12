@@ -1,0 +1,11 @@
+.navbar-fixed
+  nav
+    .naw-wrapper
+      .row
+        .logo= link_to 'Roka', orders_path, class: 'brand-logo'
+        .page-title.col.m5.offset-m3.offset-l2
+          h4= t("#{controller.controller_name.singularize}.title")
+        .col.m4.l4
+          ul.right
+            li= current_user.name
+            li= link_to t('logout'), sessions_path, method: :delete

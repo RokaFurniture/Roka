@@ -3,10 +3,10 @@ class Admin::MaterialsController < ApplicationController
 
   def index
     @materials = Material.all.order(:name)
+    @material = Material.new
   end
 
   def new
-    @material = Material.new
   end
 
   def edit

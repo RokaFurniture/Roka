@@ -2,9 +2,6 @@ ul.collapsible
   li
     .collapsible-header
       i.material-icons create
-      = t('order.create')
+      = title
     .collapsible-body.form-padding
-      = render 'form'
-br
-#orders
-  = render @orders
+      = render form

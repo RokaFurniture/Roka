@@ -3,6 +3,7 @@ class Admin::ProductsController < ApplicationController
   skip_before_action :authorize
 
   def index
+    @product = Product.new
     @products = Product.all.order(:product_group_id)
   end
 
@@ -11,7 +12,6 @@ class Admin::ProductsController < ApplicationController
   end
 
   def new
-    @product = Product.new
   end
 
   def edit

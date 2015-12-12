@@ -33,18 +33,20 @@ ru:
     color: 'Колір'
     comment: 'Коментар до товару'
   customer:
+    title: 'Клієнти'
+    list: 'Клієнт'
     create: 'Додати клієнта'
-    title: 'Клієнт'
-    list: 'Клієнти'
     name: "Ім'я"
     phone: 'Телефон'
     address: 'Адреса'
+    orders: 'Замовлення клієнта'
+    show_orders: 'Замовлення'
     price_type:
       title: 'Тип'
       wholesale: 'оптовий'
       retail: 'роздрібний'
   user:
-    list: 'Керівництво'
+    title: 'Керівництво'
     new: 'Новий користувач'
     name: "Ім'я"
     password: 'Пароль'
@@ -61,25 +63,25 @@ ru:
     new: 'Працівник'
     list: 'Список працівників'
   color:
+    title: 'Кольори'
     name: 'Назва'
     new: 'Новий колір'
     create: 'Додати колір'
-    list: 'Кольори'
-    title: 'Колір'
+    list: 'Колір'
   material:
-    title: 'Матеріал'
+    title: 'Матеріали'
     create: 'Додати матеріал'
-    list: 'Список матеріалів'
+    list: 'Матеріал'
     name: 'Назва'
     price: 'Ціна'
     option: 'Параметри'
     unit: 'Одиниця виміру'
     empty: 'Матеріалів немає'
   product:
-    title: 'Товар'
+    title: 'Товари'
     create: 'Додати продукт'
     cart: 'Карта продукту'
-    list: 'Список продуктів'
+    list: 'Товар'
     name: 'Назва'
     comment: 'Коментар'
     description: 'Опис'
@@ -93,8 +95,8 @@ ru:
       title: 'Матеріали для продукту'
       new: 'Додати матеріал'
   size:
+    title: 'Розміри'
     create: 'Додати розмір'
-    title: 'Розмір'
     list: 'Список розмірів'
     length: 'Довжина'
     width: 'Ширина'
@@ -193,7 +195,5 @@ ru:
   products: 'Товари'
   product_groups: 'Групи товарів'
   menu: 'Меню'
-  # simple_form:
-    # include_blanks:
-      # order_product:
-        # size: 'Без розміру'
+  delete_tooltip: 'Видалити'
+  edit_tooltip: 'Редагувати'

@@ -1,7 +1,2 @@
-=> link_to t('size.create'), new_admin_size_path, remote: true, class: 'btn btn-success btn-raised'
-
-.panel.panel-primary
-  .panel-heading
-    h2.panel-title = t('size.list')
-  .panel-body#sizes
-    = render @sizes
+= render partial: 'application/collapsible_form', locals: { title: t('size.create'), form: 'form' }
+= render @sizes
