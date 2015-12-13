@@ -1,14 +1,13 @@
 class Admin::UsersController < ApplicationController
   before_action :require_admin
-  before_action :set_user, only: [:edit, :update, :destroy]
+  before_action :set_user, only: [:edit, :update, :destroy, :object]
 
   def index
     @users = User.where.not(post: 'admin').order(:post)
-    @workers = Worker.all
+    @user = User.new
   end
 
   def new
-    @user = User.new(post: params[:post])
   end
 
   def edit
@@ -37,4 +36,9 @@ class Admin::UsersController < ApplicationController
   def user_params
     params.require(:user).permit!
   end
+
+  def object
+    @user
+  end
+  helper_method :object
 end

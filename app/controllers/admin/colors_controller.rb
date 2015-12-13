@@ -1,12 +1,12 @@
 class Admin::ColorsController < ApplicationController
-  before_action :set_color, only: [:edit, :update, :destroy]
+  before_action :set_color, only: [:edit, :update, :destroy, :object]
 
   def index
     @colors = Color.all.order(:name)
+    @color = Color.new
   end
 
   def new
-    @color = Color.new
   end
 
   def edit
@@ -35,4 +35,9 @@ class Admin::ColorsController < ApplicationController
   def color_params
     params.require(:color).permit!
   end
+
+  def object
+    @color
+  end
+  helper_method :object
 end

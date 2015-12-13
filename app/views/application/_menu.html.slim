@@ -1,0 +1,20 @@
+.collection
+  = link_to t('order.list'), orders_path, class: "collection-item #{active_class(:orders)}"
+  = link_to t('price.list'), prices_path, class: "collection-item #{active_class(:prices)}"
+  = link_to t('customer.list'), customers_path, class: "collection-item #{active_class(:customers)}"
+.collection
+  = link_to t('input.title'), operator_inputs_path, class: "collection-item #{active_class(:inputs)}"
+  = link_to t('output.title'), operator_outputs_path, class: "collection-item #{active_class(:outputs)}"
+  = link_to t('provider.title'), operator_providers_path, class: "collection-item #{active_class(:providers)}"
+  = link_to t('storage.leftover'), operator_storage_path, class: "collection-item #{active_class(:storage)}"
+.collection
+  = link_to t('product_groups'), admin_product_groups_path, class: "collection-item #{active_class(:product_groups)}"
+  = link_to t('materials'), admin_materials_path, class: "collection-item #{active_class(:materials)}"
+  = link_to t('products'), admin_products_path, class: "collection-item #{active_class(:products)}"
+  = link_to t('colors'), admin_colors_path, class: "collection-item #{active_class(:colors)}"
+  = link_to t('sizes'), admin_sizes_path, class: "collection-item #{active_class(:sizes)}"
+
+- if current_user.admin?
+  .collection
+    = link_to t('users'), admin_users_path, class: "collection-item #{active_class(:users)}"
+    = link_to t('worker.title'), admin_workers_path, class: "collection-item #{active_class(:workers)}"

@@ -1,7 +1,4 @@
-=> link_to t('product_group.create'), new_admin_product_group_path, remote: true, class: 'btn btn-success btn-raised'
+= render partial: 'application/collapsible_form', locals: { title: t('product_group.create'), form: 'form' }
 
-.panel.panel-primary
-  .panel-heading
-    h2.panel-title =t('product_group.list')
-  .panel-body#product_groups
-    = render @product_groups
+ul.collection id='product_groups'
+  = render @product_groups

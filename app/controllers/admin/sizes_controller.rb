@@ -1,19 +1,18 @@
 class Admin::SizesController < ApplicationController
-  before_action :set_size, only: [:edit, :update, :destroy]
+  before_action :set_size, only: [:edit, :update, :destroy, :object]
 
   def index
     @sizes = Size.all.order(:product_group_id)
+    @size = Size.new
   end
 
   def new
-    @size = Size.new(role: params[:role] || 0)
   end
 
   def edit
   end
 
   def create
-    # require 'pry'; binding.pry
     @size = Size.new(size_params)
     render :new unless @size.save
   end
@@ -36,4 +35,9 @@ class Admin::SizesController < ApplicationController
   def size_params
     params.require(:size).permit!
   end
+
+  def object
+    @size
+  end
+  helper_method :object
 end

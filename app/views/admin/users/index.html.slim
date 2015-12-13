@@ -1,11 +1,2 @@
-=> link_to t('user.create.manager'), new_admin_user_path(post: 'manager'), remote: true, class: 'btn btn-success btn-raised'
-=> link_to t('user.create.operator'), new_admin_user_path(post: 'operator'), remote: true, class: 'btn btn-success btn-raised'
-=> link_to t('user.create.worker'), new_admin_worker_path, remote: true, class: 'btn btn-success btn-raised'
-
-h4= t('user.list')
-#users
-  = render @users
-
-h4= t('worker.list')
-#workers
-  = render @workers
+= render partial: 'application/collapsible_form', locals: { title: t('user.create'), form: 'form' }
+= render @users

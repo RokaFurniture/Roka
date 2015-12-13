@@ -1,8 +1,4 @@
-=> link_to t('customer.create'), new_customer_path, remote: true, class: 'btn btn-success btn-raised'
+= render partial: 'application/collapsible_form', locals: { title: t('customer.create'), form: 'form' }
 
-.panel.panel-primary
-  .panel-heading
-    h2.panel-title
-      = t('customer.list')
-  .panel-body#customers
-    = render @customers
+ul.collapsible#customers data-collapsible='expandable'
+  = render @customers

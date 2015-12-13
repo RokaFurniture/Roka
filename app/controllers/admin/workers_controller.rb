@@ -1,9 +1,13 @@
 class Admin::WorkersController < ApplicationController
   before_action :require_admin
-  before_action :set_worker, only: [:edit, :update, :destroy]
+  before_action :set_worker, only: [:edit, :update, :destroy, :object]
+
+  def index
+    @workers = Worker.all
+    @worker = Worker.new
+  end
 
   def new
-    @worker = Worker.new
   end
 
   def edit
@@ -31,4 +35,9 @@ class Admin::WorkersController < ApplicationController
   def worker_params
     params.require(:worker).permit!
   end
+
+  def object
+    @worker
+  end
+  helper_method :object
 end

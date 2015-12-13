@@ -1,12 +1,12 @@
 class Admin::ProductGroupsController < ApplicationController
-  before_action :set_group, only: [:edit, :update, :destroy]
+  before_action :set_group, only: [:edit, :update, :destroy, :object]
 
   def index
     @product_groups = ProductGroup.all.order(:name)
+    @product_group = ProductGroup.new
   end
 
   def new
-    @product_group = ProductGroup.new
   end
 
   def edit
@@ -35,4 +35,9 @@ class Admin::ProductGroupsController < ApplicationController
   def group_params
     params.require(:product_group).permit!
   end
+
+  def object
+    @product_group
+  end
+  helper_method :object
 end

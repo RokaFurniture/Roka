@@ -1,0 +1,11 @@
+h4= @customer.name
+
+.collection.with-header
+  .collection-header
+    h5= t('customer.orders')
+  - @customer.orders.each do |order|
+    = link_to order_path(order), class: 'collection-item' do
+      span.order_number
+        = order.number
+      span.date
+        => order.date.to_formatted_s(:ukr)

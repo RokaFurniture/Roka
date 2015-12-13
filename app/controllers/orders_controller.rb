@@ -7,12 +7,11 @@ class OrdersController < ApplicationController
   end
 
   def new
-    @order = Order.new
   end
 
   def create
     @order = Order.new(order_params)
-    render :new unless @order.save
+    @order.save
   end
 
   def edit
