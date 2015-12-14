@@ -7,6 +7,7 @@ class Admin::SizesController < ApplicationController
   end
 
   def new
+    @size = Size.new
   end
 
   def edit
