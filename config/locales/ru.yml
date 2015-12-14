@@ -110,6 +110,8 @@ ru:
       standard: 'Стандартний'
       non_standard: 'Не стандартний'
     non_standard_button: 'Новий не стандартний розмір'
+    message:
+      create: 'Новий розмір створено'
   product_group:
     create: 'Додати нову групу товарів'
     title: 'Група товарів'
