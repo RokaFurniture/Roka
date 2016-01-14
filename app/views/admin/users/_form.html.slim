@@ -1,6 +1,7 @@
 = simple_form_for [:admin, @user], remote: true do |f|
-  => f.input :post, as: :radio_buttons, collection: [[t('user'), 1], [t('user'), 2]], label: t('user.post')
+  => f.input :post, as: :radio_buttons, collection: [[t('user.post.manager'), 'manager'], [t('user.post.operator'), 'operator']], label: t('user.post.title'), label_html: { class: 'active' }
+  br
   => f.input :name, label: t('user.name')
   => f.input :email, label: t('user.email')
   => f.input :password, label: t('user.password')
-  => f.submit t('form.save'), class: 'btn btn-success'
+  => f.submit t('form.save'), class: 'btn waves-effect waves-light'

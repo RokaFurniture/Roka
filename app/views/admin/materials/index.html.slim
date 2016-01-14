@@ -1,7 +1,4 @@
-=> link_to t('material.create'), new_admin_material_path, remote: true, class: 'btn btn-success btn-raised'
+= render partial: 'application/collapsible_form', locals: { title: t('material.create'), form: 'form' }
 
-.panel.panel-primary
-  .panel-heading
-    h2.panel-title =t('material.list')
-  .panel-body#materials
-    = render @materials
+ul.collection#materials
+  = render @materials

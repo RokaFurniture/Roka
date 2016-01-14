@@ -1,8 +1,9 @@
 .new_product
-  h3= t('product.title')
-  = simple_form_for [:admin, @product], html: { class: 'form-horizontal' }, remote: true do |f|
-    => f.association :product_group, include_blank: false, label: t('product_group.title')
+  /* h4= @product.product_group.name */
+  = simple_form_for [:admin, @product], remote: true do |f|
+    => f.hidden_field :product_group_id, value: params[:product_group]
     => f.input :name, label: t('product.name')
-    => f.association :size, label_method: :name, include_blank: true, label: t('size.title')
-    => f.input :image, as: :file, label: t('product.image')
-    => f.submit t('form.save'), class: 'btn btn-success'
+    => f.association :size, collection: Size.for_group(params[:product_group]), include_blank: true, label_method: :name, label: t('size.title')
+    => f.input :image, as: :file, label_html: { class: 'active' }, label: t('product.image')
+    br
+    => f.submit t('form.save'), class: 'btn waves-effect waves-light'

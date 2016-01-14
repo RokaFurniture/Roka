@@ -1,2 +1,31 @@
 = render partial: 'application/collapsible_form', locals: { title: t('size.create'), form: 'form' }
-= render @sizes
+
+.row
+  .col.s12
+    ul.tabs
+      li.tab.col.s5
+        = link_to t('size.role.standard'), '#standard'
+      li.tab.col.s5
+        = link_to t('size.role.non_standard'), '#non_standard'
+  .col.s12 id='standard'
+    - @product_groups.each do |group|
+      ul.collapsible id="sizes_standard_#{group.id}" data-collapsible='expandable'
+        li
+          .collapsible-header
+            span= group.name
+          .collapsible-body id="product_group_#{group.id}"
+            ul.collection
+              - @sizes.standard.each do |size|
+                - if size.product_group_id == group.id
+                  = render partial: 'size', object: size
+  .col.s12 id='non_standard'
+    - @product_groups.each do |group|
+      ul.collapsible id="sizes_non_standard_#{group.id}" data-collapsible='expandable'
+        li
+          .collapsible-header
+            span= group.name
+          .collapsible-body id="product_group_#{group.id}"
+            ul.collection
+              - @sizes.non_standard.each do |size|
+                - if size.product_group_id == group.id
+                  = render partial: 'size', object: size

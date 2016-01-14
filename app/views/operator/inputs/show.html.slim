@@ -1,16 +1,19 @@
-= render 'input_show'
+= render 'input_details'
 
-= link_to t('input_material.create'), new_operator_input_material_path(input: @input.id), remote: true, class: 'btn btn-raised btn-success'
-
-table.table.input_materials
+table.bordered.striped
   thead
     tr
-      th.col-md-4
-        = t('material.title')
-      th.col-md-2
-        = t('count')
-      th.col-md-2
-        = t('price')
-      th.col-md.4
-  tbody#materials
+      th= t('input_material.name')
+      th= t('input_material.count')
+      th= t('input_material.price')
+      th
+  tbody#input_materials
     = render partial: 'operator/input_materials/input_material', collection: @materials
+
+ul.collapsible
+  li
+    .collapsible-header
+      i.material-icons create
+      = t('input_material.create')
+    .collapsible-body.form-padding
+      = render partial: 'operator/input_materials/form'

@@ -1,1 +1,6 @@
 $.lazybox("<%= j(render 'form') %>")
+$('select').material_select()
+$('.datepicker').pickadate()
+$("label[for='input_num']").addClass('active')
+$("label[for='input_date']").addClass('active')
+$("label[for='input_provider']").addClass('active')

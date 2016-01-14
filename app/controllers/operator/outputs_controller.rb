@@ -1,8 +1,9 @@
 class Operator::OutputsController < ApplicationController
-  before_action :set_output, only: [:show, :edit, :update, :destroy]
+  before_action :set_output, only: [:show, :edit, :update, :destroy, :object]
 
   def index
     @outputs = Output.all
+    @output = Output.new
   end
 
   def new
@@ -10,7 +11,7 @@ class Operator::OutputsController < ApplicationController
   end
 
   def show
-    @output_material = OutputMaterial.new
+    @output_material = OutputMaterial.new(output: @output)
     @materials = OutputMaterial.materials(@output.id)
   end
 
@@ -40,4 +41,9 @@ class Operator::OutputsController < ApplicationController
   def output_params
     params.require(:output).permit!
   end
+
+  def object
+    @output
+  end
+  helper_method :object
 end

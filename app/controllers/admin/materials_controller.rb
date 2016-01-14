@@ -1,5 +1,5 @@
 class Admin::MaterialsController < ApplicationController
-  before_action :set_material, only: [:edit, :update, :destroy]
+  before_action :set_material, only: [:edit, :update, :destroy, :object]
 
   def index
     @materials = Material.all.order(:name)
@@ -35,4 +35,9 @@ class Admin::MaterialsController < ApplicationController
   def material_params
     params.require(:material).permit!
   end
+
+  def object
+    @material
+  end
+  helper_method :object
 end

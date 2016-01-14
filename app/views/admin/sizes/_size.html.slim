@@ -1,8 +1,4 @@
-.row.valign.bottom-line id="size_#{size.id}"
-  .col-md-4
-    span= size.product_group.name || 'no group'
-  .col-md-4
-    span= size.name
-  .col-md-4.text-right
-    => edit_item_link edit_admin_size_path(size)
-    => delete_item_link admin_size_path(size)
+li.collection-item id="size_#{size.id}"
+  span= size.name
+  => edit_item_link edit_admin_size_path(size), 'secondary-content'
+  => delete_item_link admin_size_path(size), 'secondary-content'

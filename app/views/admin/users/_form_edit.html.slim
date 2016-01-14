@@ -1,0 +1,4 @@
+= simple_form_for [:admin, @user], remote: true do |f|
+  => f.input :name, label: t('user.name')
+  => f.input :email, label: t('user.email')
+  => f.submit t('form.save'), class: 'btn waves-effect waves-light'

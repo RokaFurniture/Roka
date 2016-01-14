@@ -12,11 +12,17 @@ body {
   background: url('/bg.jpg');
 }
 
+// fix dropdown menu
+.dropdown-content { max-height:300px !important; }
+
 // login form
 .login {
   width: 400px;
   margin: 0 auto;
 }
+
+// remove horizontal scrollbar on tabs
+ul.tabs { overflow: hidden; }
 
 // separator between items in list
 .bottom-line { border-bottom: 1px solid #D3D3D3; }
@@ -36,12 +42,60 @@ body {
   }
 }
 
-span.order_number {
+.order {
+  margin: 0;
+}
+
+span.number {
   display: inline-block;
-  width: 80px;
+  width: 130px;
 }
 
 span.date {
   display: inline-block;
   width: 100px;
+}
+
+p.show-color {
+  margin-top: 15px;
+  border-radius: 10px;
+  border: 1px solid #BFBFBF;
+}
+
+.minicolors-input {
+  padding-right: 0 !important;
+  padding-left: 0 !important;
+}
+
+.edit_title {
+  display: none
+}
+
+#lazybox {
+  .edit_color {
+    width: 200px;
+    height: 300px;
+  }
+  .new_input {
+    height: 600px;
+  }
+  .new_output_material {
+    width: 400px;
+    height: 300px;
+  }
+  // .edit_title { display: block; }
+}
+
+.product_link {
+  display: block;
+  text-decoration: none;
+}
+
+// input file fix
+input.file {
+  margin-top: 20px;
+}
+
+.order-cell:hover {
+  // transition:
 }

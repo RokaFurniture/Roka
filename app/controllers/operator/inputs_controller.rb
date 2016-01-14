@@ -1,8 +1,9 @@
 class Operator::InputsController < ApplicationController
-  before_action :set_input, only: [:show, :edit, :update, :destroy]
+  before_action :set_input, only: [:show, :edit, :update, :destroy, :object]
 
   def index
     @inputs = Input.all
+    @input = Input.new
   end
 
   def new
@@ -16,7 +17,7 @@ class Operator::InputsController < ApplicationController
   end
 
   def show
-    @input_material = InputMaterial.new
+    @input_material = InputMaterial.new(input_id: @input.id)
     @materials = InputMaterial.materials(@input.id)
   end
 
@@ -41,4 +42,9 @@ class Operator::InputsController < ApplicationController
   def input_params
     params.require(:input).permit!
   end
+
+  def object
+    @input
+  end
+  helper_method :object
 end

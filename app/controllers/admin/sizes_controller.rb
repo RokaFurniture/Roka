@@ -4,6 +4,7 @@ class Admin::SizesController < ApplicationController
   def index
     @sizes = Size.all.order(:product_group_id)
     @size = Size.new
+    @product_groups = ProductGroup.all
   end
 
   def new

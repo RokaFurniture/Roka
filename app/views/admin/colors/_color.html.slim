@@ -1,7 +1,14 @@
-.row.valign.bottom-line id="color_#{color.id}"
-  .col-md-3
-    span #{color.name + ' (' + color.color.upcase + ')'}
-  .col-md-5.show-color style="background-color: #{color.color}"
-  .col-md-4.text-right
-    => edit_item_link(edit_admin_color_path(color))
-    => delete_item_link(admin_color_path(color))
+li id="color_#{color.id}"
+  .collapsible-header
+    = color.name
+  .collapsible-body
+    .row
+      .col.m3
+        p= color.color.upcase
+      .col.m6
+        p.show-color style="background-color: #{color.color}; color: #{color.color}" = color.color
+
+      .col.m3.right-align
+        p
+          => edit_item_link(edit_admin_color_path(color))
+          => delete_item_link(admin_color_path(color))

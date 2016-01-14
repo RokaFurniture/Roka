@@ -1,7 +1,22 @@
-=> link_to t('product.create'), new_admin_product_path, remote: true, class: 'btn btn-success btn-raised'
+ul.collapsible id='product_groups_buttons'
+  li
+    .collapsible-header
+      i.material-icons create
+      = t('product.create')
+    .collapsible-body.form-padding.row
+      .col.m3.collection
+        - @product_groups.each do |g|
+          = link_to g.name, new_admin_product_path(product_group: g.id), remote: true, id: "form_pg_#{g.id}", class: 'collection-item'
+      .col.m9#product_form
 
-.panel.panel-primary
-  .panel-heading
-    h2.panel-title =t('product.list')
-  .panel-body#products
-    = render @products
+- @product_groups.each do |group|
+  ul.collapsible id="product_group_#{group.id}" data-collapsible='expandable'
+    li
+      .collapsible-header
+        = group.name
+      .collapsible-body
+        table
+          tbody
+            - @products.each do |product|
+              - if product.product_group_id == group.id
+                = render partial: 'product', object: product

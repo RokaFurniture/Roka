@@ -1,8 +1,10 @@
 .new_input_material
-  h3= t('material.title')
-  = simple_form_for [:operator, @input_material], html: { class: 'form-horizontal' }, remote: true do |f|
+  = simple_form_for [:operator, @input_material], remote: true do |f|
     => f.hidden_field :input_id
-    => f.association :material, collection: Material.all.order(:name), include_blank: false, label_method: lambda { |x| "#{x.name << ' (' << x.option << ') (' << x.unit << ')'}".to_s }, label: t('material.title')
-    => f.input :price, label: t('price')
-    => f.input :count, label: t('count')
-    => f.submit t('form.add_new'), class: 'btn btn-success btn-raised'
+    => f.association :material, collection: Material.all.order(:name), include_blank: false, label_method: lambda { |x| "#{x.name << ' (' << x.option << ') (' << x.unit << ')'}".to_s }, label: t('input_material.name')
+    .row
+      .col.m6
+        => f.input :count, label: t('input_material.count')
+      .col.m6
+        => f.input :price, label: t('input_material.price')
+    => f.submit t('form.add_new'), class: 'btn waves-effect waves-light'

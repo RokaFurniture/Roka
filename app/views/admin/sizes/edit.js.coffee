@@ -1,1 +1,6 @@
 $.lazybox("<%= j(render 'form') %>")
+$('select').material_select()
+$('#lazybox #size_role_standard').attr('id', 'edit_size_role_standard')
+$('#lazybox #size_role_non_standard').attr('id', 'edit_size_role_non_standard')
+$("label[for='size_role_standard']").attr('for', 'edit_size_role_standard')
+$("label[for='size_role_non_standard']").attr('for', 'edit_size_role_non_standard')

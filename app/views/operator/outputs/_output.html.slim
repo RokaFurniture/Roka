@@ -1,10 +1,8 @@
-.row.valign.bottom-line id="output_#{output.id}"
-  .col-md-3
-    span= output.num
-  .col-md-2
-    span.name-middle= output.date
-  .col-md-4
-    span.name-middle= output.order
-  .col-md-3.text-right
-    => link_to t('output.show'), operator_output_path(output), class: 'btn btn-default btn-raised'
+tr id="output_#{output.id}"
+  td= output.num
+  td= output.date
+  td= output.order
+  td= output.worker.name
+  td
+    => link_to t('output.show'), operator_output_path(output), class: 'btn waves-effect waves-light'
     => delete_item_link operator_output_path(output)

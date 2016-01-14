@@ -1,14 +1,12 @@
-=> link_to t('output.create'), new_operator_output_path, remote: true, class: 'btn btn-success btn-raised'
+= render partial: 'application/collapsible_form', locals: { title: t('output.create'), form: 'form' }
 
-.panel.panel-primary
-  .panel-heading
-    .panel-title.row
-      .col-md-3
-        span= t('output.num')
-      .col-md-2
-        span.name-middle= t('output.date')
-      .col-md-4
-        span.name-middle= t('output.order')
-      .col-md-3
-  .panel-body#outputs
+table.bordered.striped
+  thead
+    tr
+      th= t('output.num')
+      th= t('output.date')
+      th= t('output.order')
+      th= t('output.worker')
+      th
+  tbody#outputs
     = render @outputs
