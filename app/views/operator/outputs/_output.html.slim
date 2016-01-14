@@ -2,7 +2,7 @@ tr id="output_#{output.id}"
   td= output.num
   td= output.date
   td= output.order
-  td= output.worker.name
+  td= output.worker.name if output.worker
   td
     => link_to t('output.show'), operator_output_path(output), class: 'btn waves-effect waves-light'
     => delete_item_link operator_output_path(output)
