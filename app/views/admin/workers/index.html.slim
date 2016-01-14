@@ -1,4 +1,5 @@
-= render partial: 'application/collapsible_form', locals: { title: t('worker.create'), form: 'form' }
+#create_worker
+  = render partial: 'application/collapsible_form', locals: { title: t('worker.create'), form: 'form' }
 
-#workers
+ul.collection#workers
   = render @workers

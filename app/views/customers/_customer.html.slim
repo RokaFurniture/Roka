@@ -3,11 +3,10 @@ li id="customer_#{customer.id}"
     = customer.name
   .collapsible-body
     .row
-      .col.m3
+      .col.m5
         p= customer.phone
-      .col.m3
         p= customer.address
-      .col.m3
+      .col.m4
         p= link_to t('customer.orders'), customer_path(customer), class: 'btn waves-effect waves-light'
       .col.m3.right-align
         p

@@ -9,10 +9,17 @@
 //= require lazybox
 //= require_tree .
 
+$.minicolors.defaults.theme = 'bootstrap';
+$.minicolors.defaults.control = 'wheel';
+$.minicolors.defaults.position = 'bottom right';
+$.minicolors.defaults.letterCase = 'uppercase';
+
 var ready;
 ready = function() {
   $('select').material_select();
   $('.tooltipped').tooltip({delay: 50});
+  $('#color_color').minicolors();
+  $("label[for='color_color']").addClass('active');
   $('.datepicker').pickadate({
     labelMonthNext: 'Наступний місяць',
     labelMonthPrev: 'Попередній місяць',

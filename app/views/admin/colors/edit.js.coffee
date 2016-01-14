@@ -1,2 +1,6 @@
 $.lazybox("<%= j(render 'form') %>")
-$('#color_color').minicolors(theme: 'bootstrap', position: 'bottom right')
+$("label[for='color_name']").addClass('active')
+$("label[for='color_color']").addClass('active')
+$("#lazybox label[for='color_color']").attr('for', 'edit_color_color')
+$('#lazybox #color_color').attr('id', 'edit_color_color')
+$('#edit_color_color').minicolors()

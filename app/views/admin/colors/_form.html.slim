@@ -1,6 +1,6 @@
-.new_color
-  h3= t('color.title')
-  = simple_form_for [:admin, @color], html: { class: 'form-horizontal' }, remote: true do |f|
+.edit_color
+  /* h4.edit_title= t('color.edit') */
+  = simple_form_for [:admin, @color], remote: true do |f|
     => f.input :name, label: t('color.name')
-    => f.input :color, as: :minicolors, label: t('color.title')
-    => f.submit t('form.save'), class: 'btn btn-success'
+    => f.input :color, label: t('color.color')
+    => f.submit t('form.save'), class: 'btn waves-effect waves-light'

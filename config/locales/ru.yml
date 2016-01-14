@@ -25,6 +25,10 @@ ru:
       completed: 'Виготовлено'
       in_delivery: 'Доставляється'
       finished: 'Виконано'
+    message:
+      create: 'Замовлення створено'
+    order_products:
+      list: 'Замовлені товари'
   order_product:
     list: 'Список замовлених товарів'
     create: 'Додати товар'
@@ -33,9 +37,9 @@ ru:
     color: 'Колір'
     comment: 'Коментар до товару'
   customer:
-    title: 'Клієнти'
-    list: 'Клієнт'
-    create: 'Додати клієнта'
+    title: 'Замовники'
+    list: 'Замовник'
+    create: 'Додати замовника'
     name: "Ім'я"
     phone: 'Телефон'
     address: 'Адреса'
@@ -51,23 +55,30 @@ ru:
     name: "Ім'я"
     password: 'Пароль'
     email: 'E-mail'
-    manager: 'Менеджер'
-    operator: 'Оператор'
-    create:
-      manager: 'Додати менеджера'
-      operator: 'Додати оператора'
-      worker: 'Додати працівника'
+    post:
+      title: 'Посада'
+      manager: 'Менеджер'
+      operator: 'Оператор'
+    create: 'Додати користувача'
+    message:
+      create: 'Користувача додано'
   worker:
     title: 'Працівники'
     name: "Ім'я"
     new: 'Працівник'
-    list: 'Список працівників'
+    list: 'Працівники'
+    create: 'Додати працівника'
+    message:
+      create: 'Нового працівника успішно додано'
   color:
     title: 'Кольори'
     name: 'Назва'
     new: 'Новий колір'
     create: 'Додати колір'
     list: 'Колір'
+    color: 'Колір'
+    message:
+      create: 'Новий коліруспішно додано'
   material:
     title: 'Матеріали'
     create: 'Додати матеріал'
@@ -77,6 +88,8 @@ ru:
     option: 'Параметри'
     unit: 'Одиниця виміру'
     empty: 'Матеріалів немає'
+    message:
+      create: 'Новий матеріал успішно додано'
   product:
     title: 'Товари'
     create: 'Додати продукт'
@@ -109,7 +122,7 @@ ru:
       title: 'Тип'
       standard: 'Стандартний'
       non_standard: 'Не стандартний'
-    non_standard_button: 'Новий не стандартний розмір'
+    non_standard_button: 'Новий розмір'
     message:
       create: 'Новий розмір створено'
   product_group:
@@ -117,6 +130,8 @@ ru:
     title: 'Група товарів'
     name: 'Назва'
     list: 'Список груп товарів'
+    message:
+      create: 'Групу товарів успішно створено'
   product_material:
     create: 'Додати матеріал'
     level: 'Етап'
@@ -134,6 +149,9 @@ ru:
     adress: 'Адреса'
     empty: 'Немає постачальників'
     create: 'Новий постачальник'
+    inputs: 'Поставки'
+    message:
+      create: 'Нового постачальника додано'
   input:
     title: 'Надходження'
     create: 'Нове надходження матеріалів'
@@ -144,8 +162,15 @@ ru:
     empty: 'Надходження матеріалів відсутні'
     show: 'Показати'
     add_materials: 'Додайте матеріали до накладної'
+    message:
+      create: 'Нове надходження додано'
   input_material:
     create: 'Додати матеріал'
+    name: 'Назва'
+    count: 'Кількість'
+    price: 'Ціна'
+    message:
+      create: 'Матеріал додано'
   output:
     title: 'Видача'
     create: 'Нова видача матеріалів'
@@ -156,8 +181,14 @@ ru:
     add_materials: 'Додайте матеріали до списку'
     order: 'Замовлення'
     worker: 'Кому видано'
+    message:
+      create: 'Нову видачу створено'
   output_material:
     create: 'Додати матеріал'
+    name: 'Матеріал'
+    count: 'Кількість'
+    message:
+      create: 'Матеріал додано'
   form:
     back: 'Назад'
     cansel: 'Відмінити'
@@ -176,7 +207,8 @@ ru:
     create: 'Додати'
     name: 'Товар'
     value: 'Ціна'
-    white: 'Білий/слонова кістка'
+    white: 'Білий'
+    ivory: 'слонова кістка'
     sides: 'Боковини'
     retail: 'Роздрібна'
   date:

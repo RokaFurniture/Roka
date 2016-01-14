@@ -1,14 +1,18 @@
-= render 'output_show'
+= render 'output_details'
 
-= link_to t('output_material.create'), new_operator_output_material_path(output: @output.id), remote: true, class: 'btn btn-raised btn-success'
-
-table.table.output_materials
+table.bordered.striped
   thead
     tr
-      th.col-md-6
-        = t('material.title')
-      th.col-md-2
-        = t('count')
-      th.col-md-4
-  tbody#materials
+      th= t('output_material.name')
+      th= t('output_material.count')
+      th
+  tbody#output_materials
     = render partial: 'operator/output_materials/output_material', collection: @materials
+
+ul.collapsible
+  li
+    .collapsible-header
+      i.material-icons create
+      = t('output_material.create')
+    .collapsible-body.form-padding
+      = render partial: 'operator/output_materials/form'

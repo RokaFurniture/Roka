@@ -1,7 +1,5 @@
-.row id="user_#{user.id}"
-  .col.m3= t("user.#{user.post}")
-  .col.m3= user.name
-  .col.m3= user.email
-  .col.m3
-    = edit_item_link(edit_admin_user_path(user))
-    = delete_item_link(admin_user_path(user))
+li.collection-item id="user_#{user.id}"
+  .user
+    span=> user.name + ' - ' + t("user.post.#{user.post}") + ' - ' + user.email
+    = delete_item_link(admin_user_path(user), 'secondary-content')
+    = edit_item_link(edit_admin_user_path(user), 'secondary-content')

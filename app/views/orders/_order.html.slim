@@ -1,11 +1,28 @@
-.card-panel.teal.lighten-5.list-item
-  = link_to order_path(order), class: 'list_item_link' do
-    span.info
-      span= t('order.num') << ': ' << order.number
-      span= order.date.to_formatted_s(:ukr)
-      span= order.customer.name
-      span= order_status(order.status)
-    span.products
-      - order.products.each do |p|
-        span= p.full_name
+/* .card-panel.teal.lighten-5 */
+/*   = link_to order_path(order), class: 'list_item_link' do */
+/*     .row.order */
+/*       .col.m4.info */
+/*         span= t('order.num') << ': ' << order.number */
+/*         span= order.date.to_formatted_s(:ukr) */
+/*         span= order.customer.name */
+/*         span= order_status(order.status) */
+/*       .col.m6.products */
+/*         - order.products.each do |p| */
+/*           span= p.full_name */
+/*       .col.m2 */
+/*         p= edit_item_link edit_order_path(order) */
+/*         p= delete_item_link order_path(order) */
+
+tr.order-cell id="order_#{order.id}"
+  td= order.number
+  td= order.date.to_formatted_s(:ukr)
+  td= order.customer.name
+  td= order_status(order.status)
+  td
+    - order.products.each do |p|
+      p= p.full_name
+  td
+    => link_to t('order.cart'), order_path(order), class: 'btn waves-effect waves-light'
+    => edit_item_link edit_order_path(order)
+    => delete_item_link order_path(order)
 

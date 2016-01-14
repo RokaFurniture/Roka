@@ -1,5 +1,7 @@
-$("<%= j(render @size) %>").appendTo("#sizes").effect('highlight', {}, 1000)
+$("<%= j(render @size) %>").prependTo("#<%= @size.role %> #product_group_<%= @size.product_group.id %> .collection").effect('highlight', {}, 1000)
 $("<option value='<%= @size.id %>'><%= @size.name %></option>").appendTo("#order_product_size_id")
 $("#order_product_size_id").val("<%= @size.id %>")
 $('#lazy_overlay').removeClass('active')
 Materialize.toast("<%= t('size.message.create') %>", 4000)
+$('.tooltipped').tooltip({delay: 50})
+$('.simple_form')[0].reset()

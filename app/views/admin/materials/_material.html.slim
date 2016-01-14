@@ -1,8 +1,4 @@
-.row.valign.bottom-line. id="material_#{material.id}"
-  .col-md-6
-    span.name-middle= material.title
-  .col-md-2
-    span.name-middle= material.unit
-  .col-md-4.text-right
-    => edit_item_link(edit_admin_material_path(material))
-    => delete_item_link(admin_material_path(material))
+li.collection-item id="material_#{material.id}"
+  = material.title + ', ' + material.unit
+  => delete_item_link(admin_material_path(material), 'secondary-content')
+  => edit_item_link(edit_admin_material_path(material), 'secondary-content')

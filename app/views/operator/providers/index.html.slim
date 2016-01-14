@@ -1,8 +1,5 @@
-=> link_to t('provider.create'), new_operator_provider_path, remote: true, class: 'btn btn-success btn-raised'
+= render partial: 'application/collapsible_form', locals: { title: t('provider.create'), form: 'form' }
 
-.panel.panel-primary
-  .panel-heading
-    h2.panel-title
-      = t('provider.list')
-  .panel-body#providers
-    = render @providers
+ul.collapsible#providers data-collapsible='expandable'
+  = render @providers
+

@@ -1,10 +1,7 @@
 tr id="input_material_#{input_material.id}"
-  td.col-md-4.valign
-    = input_material.material.title
-  td.col-md-2.valign
-    = input_material.count
-  td.col-md-2.valign
-    = input_material.price
-  td.col-md.4.valign.text-right
-    /* => link_to t('form.edit'), edit_admin_product_material_path(product_material), remote: true, class: 'btn btn-default' */
+  td= input_material.material.title
+  td= input_material.count
+  td= input_material.price
+  td
+    => edit_item_link edit_operator_input_material_path(input_material)
     => delete_item_link operator_input_material_path(input_material)

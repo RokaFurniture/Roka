@@ -1,8 +1,6 @@
 tr id="output_material_#{output_material.id}"
-  td.col-md-6
-    = output_material.material.title
-  td.col-md-2
-    = output_material.count
-  td.col-md-4.text-right
-    /* => link_to t('form.edit'), edit_admin_product_material_path(product_material), remote: true, class: 'btn btn-default' */
+  td= output_material.material.title
+  td= output_material.count
+  td
+    => edit_item_link edit_operator_output_material_path(output_material)
     => delete_item_link operator_output_material_path(output_material)

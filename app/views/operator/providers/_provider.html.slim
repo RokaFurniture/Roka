@@ -1,10 +1,14 @@
-.row.valign.bottom-line id="provider_#{provider.id}"
-  .col-md-3
-    span= provider.name
-  .col-md-2
-    span.name-middle= provider.phone
-  .col-md-4
-    span.name-middle= provider.address
-  .col-md-3.text-right
-    => edit_item_link edit_operator_provider_path(provider)
-    => delete_item_link operator_provider_path(provider)
+li id="provider_#{provider.id}"
+  .collapsible-header
+    = provider.name
+  .collapsible-body
+    .row
+      .col.m5
+        p= provider.phone
+        p= provider.address
+      .col.m4
+        p= link_to t('provider.inputs'), operator_provider_path(provider), class: 'btn waves-effect waves-light'
+      .col.m3.right-align
+        p
+          => edit_item_link edit_operator_provider_path(provider)
+          => delete_item_link operator_provider_path(provider)

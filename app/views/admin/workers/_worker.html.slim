@@ -1,5 +1,5 @@
-.row id="worker_#{worker.id}"
-  .col.m3.offset-m3= worker.name
-  .col.m3.offset-m3
-    = edit_item_link(edit_admin_worker_path(worker))
-    = delete_item_link(admin_worker_path(worker))
+li.collection-item id="worker_#{worker.id}"
+  .worker
+    = worker.name
+    = delete_item_link(admin_worker_path(worker), 'secondary-content')
+    = edit_item_link(edit_admin_worker_path(worker), 'secondary-content')

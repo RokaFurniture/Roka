@@ -1,7 +1,6 @@
 .new_provider
-  h3= t('provider.new')
-  = simple_form_for [:operator, @provider], html: { class: 'form-horizontal' }, remote: true do |f|
+  = simple_form_for [:operator, @provider], remote: true do |f|
     => f.input :name, label: t('provider.name')
     => f.input :phone, label: t('provider.phone')
     => f.input :address, label: t('provider.adress')
-    => f.submit t('form.create'), class: 'btn btn-success btn-raised'
+    => f.submit t('form.create'), class: 'btn waves-effect waves-light'

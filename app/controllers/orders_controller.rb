@@ -1,5 +1,5 @@
 class OrdersController < ApplicationController
-  before_action :set_order, only: [:edit, :show, :update, :destroy]
+  before_action :set_order, only: [:edit, :show, :update, :destroy, :object]
 
   def index
     @orders = Order.includes(:order_products)
@@ -44,4 +44,9 @@ class OrdersController < ApplicationController
   def order_params
     params.require(:order).permit!
   end
+
+  def object
+    @order
+  end
+  helper_method :object
 end

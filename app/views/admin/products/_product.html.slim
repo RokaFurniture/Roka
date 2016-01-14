@@ -1,12 +1,7 @@
-.row.valign.bottom-line id="product_#{product.id}"
-  .col-md-1
-    = image_tag(product.image_url(:thumb)) if product.image_url
-  .col-md-2
-    span= product.product_group.name
-  .col-md-3
-    span= product.name
-  .col-md-2
-    span= product.size.name if product.size
-  .col-md-4.text-right
-    => link_to t('product.cart'), admin_product_path(product), class: 'btn btn-raised'
+tr.walign-wrapper id="product_#{product.id}"
+  td.m2= image_tag(product.image_url(:thumb)) if product.image_url
+  td.m4= product.name
+  td.m3= product.size.name if product.size
+  td.m4.right-align
+    => link_to t('product.cart'), admin_product_path(product), class: 'btn waves-effect waves-light'
     => delete_item_link(admin_product_path(product))

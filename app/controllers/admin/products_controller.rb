@@ -5,6 +5,7 @@ class Admin::ProductsController < ApplicationController
   def index
     @product = Product.new
     @products = Product.all.order(:product_group_id)
+    @product_groups = ProductGroup.all
   end
 
   def show
@@ -12,6 +13,7 @@ class Admin::ProductsController < ApplicationController
   end
 
   def new
+    @product = Product.new(product_group_id: params[:product_group])
   end
 
   def edit
@@ -19,6 +21,9 @@ class Admin::ProductsController < ApplicationController
 
   def create
     @product = Product.new(product_params)
+    # @product = Product.new(name: params[:product][:name],
+                           # size_id: params[:product][:size_id],
+                           # product_group: params[:product_group])
     render :new unless @product.save
   end
 

@@ -1,1 +1,5 @@
-$("<%= j(render object) %>").appendTo("#<%= object.model_name.plural.underscore %>").effect('highlight', {}, 1000)
+$("<%= j(render object) %>").prependTo("#<%= object.model_name.plural.underscore %>").effect('highlight', {}, 2000)
+console.log("<%= object.model_name %>")
+Materialize.toast("<%= I18n.t(object.model_name.singular.underscore + '.message.create') %>", 4000)
+$('.tooltipped').tooltip({delay: 50})
+$('.simple_form')[0].reset()

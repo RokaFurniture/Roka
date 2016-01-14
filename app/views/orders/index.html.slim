@@ -1,4 +1,4 @@
-ul.collapsible
+ul.collapsible#create_order
   li
     .collapsible-header
       i.material-icons create
@@ -6,5 +6,17 @@ ul.collapsible
     .collapsible-body.form-padding
       = render 'form'
 br
-#orders
+/* #orders */
   = render @orders
+
+table.bordered.striped
+  thead
+    tr
+      th= t('order.num')
+      th= t('order.date')
+      th= t('customer.list')
+      th= t('order.status.title')
+      th= t('order.order_products.list')
+      th
+  tbody#orders
+    = render @orders

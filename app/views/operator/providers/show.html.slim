@@ -1,0 +1,11 @@
+h4= @provider.name
+
+.collection.with-header
+  .collection-header
+    h5= t('provider.inputs')
+  - @provider.inputs.each do |input|
+    = link_to operator_input_path(input), class: 'collection-item' do
+      span.number
+        = input.num
+      span.date
+        => input.date.to_formatted_s(:ukr)

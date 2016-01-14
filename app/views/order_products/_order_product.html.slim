@@ -5,5 +5,5 @@
     p= t('order_product.patina') << ': ' << order_product.patina unless order_product.patina.blank?
     p= order_product.comment if order_product.comment
   .col.m4.text-right
-    => edit_item_link(edit_order_product_path(order_product))
+    /* => edit_item_link(edit_order_product_path(order_product)) */
     => delete_item_link(order_product_path(order_product))

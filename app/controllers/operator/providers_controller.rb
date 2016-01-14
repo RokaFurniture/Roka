@@ -1,12 +1,16 @@
 class Operator::ProvidersController < ApplicationController
-  before_action :set_provider, only: [:edit, :update, :destroy]
+  before_action :set_provider, only: [:show, :edit, :update, :destroy, :object]
 
   def index
     @providers = Provider.all.order(:name)
+    @provider = Provider.new
   end
 
   def new
     @provider = Provider.new
+  end
+
+  def show
   end
 
   def edit
@@ -35,4 +39,9 @@ class Operator::ProvidersController < ApplicationController
   def provider_params
     params.require(:provider).permit!
   end
+
+  def object
+    @provider
+  end
+  helper_method :object
 end

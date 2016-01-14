@@ -1,15 +1,11 @@
-=> link_to t('input.create'), new_operator_input_path, remote: true, class: 'btn btn-success btn-raised'
-=> link_to t('provider.create'), new_operator_provider_path, remote: true, class: 'btn btn-info btn-raised'
+= render partial: 'application/collapsible_form', locals: { title: t('input.create'), form: 'form' }
 
-.panel.panel-primary
-  .panel-heading
-    .panel-title.row
-      .col-md-2
-        span= t('input.num')
-      .col-md-2
-        span.name-middle= t('input.date')
-      .col-md-3
-        span.name-middle= t('input.provider')
-      .col-md-5
-  .panel-body#inputs
+table.bordered.striped
+  thead
+    tr
+      th= t('input.num')
+      th= t('input.date')
+      th= t('input.provider')
+      th
+  tbody#inputs
     = render @inputs
